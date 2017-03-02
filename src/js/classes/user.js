@@ -1,7 +1,8 @@
 // Class User
 
 function User(idUser=false){
-    this.email=user;
+    this.email='';
+    this.name='';
     this.idUser=idUser;
     this.token=false;
     this.campaigns=[];

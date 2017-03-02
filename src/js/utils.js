@@ -46,29 +46,3 @@ function parseJSONToParams(obj) {
    return str;
 }
 
-/**
-   * Adds js file to document
-   * @param  {String} url Relative url of the file
-   * @return {Promise}  Resolved on load
-   */
-  function injectJs (url) {
-    var element = document.createElement('script')
-    element.src = url
-    element.type = 'text/javascript'
-    element.async = true
-    return getLoaderPromise(element, url)
-  }
-
-  /**
-   * Takes a script or link element and loads it returning a promise
-   * @param  {HTMLElement} element <script> or <link>
-   * @param  {String} url Relative url of the file
-   * @return {Promise}  Resolved on load
-   */
-  function getLoaderPromise (element, url) {
-    return new Promise(function (resolve, reject) {
-      element.onload = function (event) { resolve(url); }
-      element.onerror = function (event) { resolve(url); }
-      document.body.appendChild(element);
-    })
-  }
