@@ -1,31 +1,55 @@
 // Class User
 
 function User(idUser=false){
-    this.email='';
     this.name='';
     this.idUser=idUser;
-    this.token=false;
     this.campaigns=[];
+    this.urls={
+        'token':'/test/mock_json/token.json'
+    };
+    this.token=false;
 
-    this.tokken=this.isLogin()||this.createUser();
-    
+    this.callToken();
+    console.log(this);
 }
-
-User.prototype.isLogin=function(){
-    if (!this.idUser) return false;
-    return this.loadToken(); 
-};
-
-User.prototype.createUser=function(){
-    return new Promise(function(resolve,reject){});
-};
 
 User.prototype.loadToken=function(){
     if(typeof Stores!==undefined){
-        return localStores.getItem('token');
-    }
-    else {
-        // loadAjax token in server Promise
+        return this.token=localStorage.getItem('token');
     }
     return false;
+};
+
+User.prototype.callToken=function(){
+    if (!this.loadToken()) {
+        var ajax={
+            url:this.urls.token,
+            method: 'GET'
+        };
+        loadFile(ajax)
+            .then(function(resolve){
+                var aux=JSON.parse(resolve);
+                this.saveToken(aux.token);
+                this.token=aux.token;
+                this.loadCampaigns();
+            }.bind(this),
+            function(error) {
+                console.error("Failed!", error);
+                return false;
+            });    
+    }
+    else {
+        this.loadCampaigns();
+    }
+    
+};
+
+User.prototype.saveToken=function(token){
+     if(typeof Stores!==undefined){
+        localStorage.setItem('token',token);
+     }
+};
+
+User.prototype.loadCampaigns=function(){
+    console.log('LoadCampaigns()');    
 };

@@ -2,8 +2,7 @@
 
 
 window.onload=function(){
-    user = new User();
-    console.log(user);
+    user = new User('id_1');
 };
 
 
