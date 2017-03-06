@@ -6,7 +6,6 @@ function loadFile(ajax){
   var contentType = typeof ajax.contentType !== 'undefined' ? ajax.contentType : 'application/x-www-form-urlencoded';
   var params =  typeof ajax.params !== 'undefined' ? ajax.params : {};
   urlParams=parseJSONToParams(params);
-     
 
   return new Promise(function(resolve, reject) {
     var req = new XMLHttpRequest();

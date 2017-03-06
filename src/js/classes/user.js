@@ -8,29 +8,31 @@ function User(idUser=false){
         'token':'/test/mock_json/token.json'
     };
     this.token=false;
-
-    this.callToken();
-    console.log(this);
+    this.callData();
 }
 
 User.prototype.loadToken=function(){
     if(typeof Stores!==undefined){
-        return this.token=localStorage.getItem('token');
+        this.token=localStorage.getItem('token');
+        return true;
     }
     return false;
 };
 
-User.prototype.callToken=function(){
-    if (!this.loadToken()) {
+User.prototype.callData=function(){
+    if ((this.idUser)&&(this.loadToken())) {
         var ajax={
             url:this.urls.token,
-            method: 'GET'
+            method: 'GET',
+            params:{
+                token:this.token,
+                idUser:this.idUser
+            }
         };
         loadFile(ajax)
             .then(function(resolve){
-                var aux=JSON.parse(resolve);
-                this.saveToken(aux.token);
-                this.token=aux.token;
+                this.insertData(JSON.parse(resolve));
+                this.saveToken(this.token);
                 this.loadCampaigns();
             }.bind(this),
             function(error) {
@@ -39,11 +41,15 @@ User.prototype.callToken=function(){
             });    
     }
     else {
-        this.loadCampaigns();
+        //loginuser
     }
     
 };
-
+User.prototype.insertData=function(json){
+    for (var key in json){
+        this[key]=json[key];
+    }
+};
 User.prototype.saveToken=function(token){
      if(typeof Stores!==undefined){
         localStorage.setItem('token',token);
