@@ -2,7 +2,7 @@
 
 
 window.onload=function(){
-    window.loginValidate=new validateFormHTML5('FormLogin',{
+    window.validate=new validateFormHTML5('FormLogin',{
             formValidate:'true',
             rules: {
                         LoginEmail: {
@@ -34,22 +34,16 @@ window.onload=function(){
                           labelCSS:'',
                           idError:'LoginEmailError'
                       },
-                      LoginPassword: {
+                       LoginPassword: {
                           inputCSS:'',
                           labelCSS:'',
                           idError:'LoginPasswordError'
                       }
             }
-    },saveUser);
+    },validateSafari);
 };
 
 
-
-function saveUser() {
-   if (typeof(Storage) !== "undefined") {
-    localStorage.setItem("email",document.getElementById('LoginEmail').value);
-   }
-   else {
-    document.cookie="userEmail="+document.getElementById('LoginEmail').value;
-   }
+function validateSafari() {
+    console.log('Validate safari');
 }

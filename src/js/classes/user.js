@@ -1,28 +1,31 @@
 // Class User
 
-function User(userEmail='',password='',idUser=false){
-    this.email=user;
-    this.password=password;
+function User(idUser=false){
+    this.email='';
+    this.name='';
     this.idUser=idUser;
-    this.tokken=0;
+    this.token=false;
     this.campaigns=[];
-}
 
-User.prototype.init=function(){
-    if (this.isLogin()&&this.login()){
-        this.createUser();
-    }
-};
+    this.tokken=this.isLogin()||this.createUser();
+    
+}
 
 User.prototype.isLogin=function(){
     if (!this.idUser) return false;
-    return true; 
+    return this.loadToken(); 
 };
 
 User.prototype.createUser=function(){
-    return true;
+    return new Promise(function(resolve,reject){});
 };
 
-User.prototype.login=function(){
-    return true;
+User.prototype.loadToken=function(){
+    if(typeof Stores!==undefined){
+        return localStores.getItem('token');
+    }
+    else {
+        // loadAjax token in server Promise
+    }
+    return false;
 };
