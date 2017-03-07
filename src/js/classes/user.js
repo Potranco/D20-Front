@@ -4,11 +4,13 @@ function User(idUser=false){
     this.name='';
     this.idUser=idUser;
     this.campaigns=[];
+    this.chars=[];
     this.urls={
         'token':'/test/mock_json/token.json'
     };
     this.token=false;
     this.events=new ArrayFunctions();
+    
     this.createEvents();
     this.events.isLogin();
 }
@@ -18,6 +20,7 @@ User.prototype.createEvents=function(){
     this.events.add('onLoadUser',this.loadUser.bind(this));
     this.events.add('onNewUser',this.createNewUser.bind(this));
     this.events.add('onLoadCampaigns',this.onLoadCampaigns.bind(this));
+    this.events.add('onLoadChars',this.onLoadChars.bind(this));
 };
 
 User.prototype.loadToken=function(){
@@ -57,6 +60,7 @@ User.prototype.loadUser=function(json){
     this.insertData(json);
     this.saveToken(this.token);
     this.loadCampaigns();
+    this.loadChars();
 };
 
 User.prototype.insertData=function(json){
@@ -74,11 +78,14 @@ User.prototype.loadCampaigns=function(){
     this.campaigns=new Campaigns(this.idUser,this.events.onLoadCampaigns);
 };
 User.prototype.onLoadCampaigns=function(){
-    console.log('onLoadCampaigns');
+    console.log('onloadCampaigns');
 };
 
 User.prototype.loadChars=function(result){
-    console.log('loadChars');
+    this.chars=new Chars(this.idUser,this.events.onLoadChars)
+};
+User.prototype.onLoadChars=function(result){
+    console.log('onloadChars');
 };
 
 User.prototype.createNewUser=function(){

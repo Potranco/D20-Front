@@ -1,0 +1,20 @@
+{
+    "chars":[
+        {
+            "id":"1",
+            "idUser":"123",
+            "name":"Nombre char 1"
+        },
+        {
+            "id":"2",
+            "idUser":"123",
+            "name":"Nombre char 2"
+        },
+        {
+            "id":"3",
+            "idUser":"123",
+            "name":"Nombre char 3"
+        }
+        
+    ]
+}
