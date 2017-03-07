@@ -8,8 +8,15 @@ function User(idUser=false){
         'token':'/test/mock_json/token.json'
     };
     this.token=false;
-    this.callData();
+    this.events=new PubSub();
+    this.createEvents();
+    this.events.isLogin();
 }
+
+User.prototype.createEvents=function(){
+    this.events.add('isLogin',this.callData.bind(this));
+    this.events.add('loadUser',this.loadUser.bind(this));
+};
 
 User.prototype.loadToken=function(){
     if(typeof Stores!==undefined){
@@ -31,9 +38,7 @@ User.prototype.callData=function(){
         };
         loadFile(ajax)
             .then(function(resolve){
-                this.insertData(JSON.parse(resolve));
-                this.saveToken(this.token);
-                this.loadCampaigns();
+                this.events.loadUser(JSON.parse(resolve));
             }.bind(this),
             function(error) {
                 console.error("Failed!", error);
@@ -41,10 +46,17 @@ User.prototype.callData=function(){
             });    
     }
     else {
-        //loginuser
+        this.createNewUser();
     }
     
 };
+
+User.prototype.loadUser=function(json){
+    this.insertData(json);
+    this.saveToken(this.token);
+    this.loadCampaigns();
+};
+
 User.prototype.insertData=function(json){
     for (var key in json){
         this[key]=json[key];
@@ -57,5 +69,9 @@ User.prototype.saveToken=function(token){
 };
 
 User.prototype.loadCampaigns=function(){
-    console.log('LoadCampaigns()');    
+    console.log('LoadCampaigns()');  
+};
+
+User.prototype.createNewUser=function(){
+    
 };
