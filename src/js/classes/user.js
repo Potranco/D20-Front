@@ -16,6 +16,7 @@ function User(idUser=false){
 User.prototype.createEvents=function(){
     this.events.add('isLogin',this.callData.bind(this));
     this.events.add('loadUser',this.loadUser.bind(this));
+    this.events.add('newUser',this.createNewUser.bind(this));
 };
 
 User.prototype.loadToken=function(){
@@ -46,7 +47,7 @@ User.prototype.callData=function(){
             });    
     }
     else {
-        this.createNewUser();
+        this.events.newUser();
     }
     
 };
@@ -69,9 +70,9 @@ User.prototype.saveToken=function(token){
 };
 
 User.prototype.loadCampaigns=function(){
-    console.log('LoadCampaigns()');  
+    this.campaigns=new Camapigns(this.idUser);
 };
 
 User.prototype.createNewUser=function(){
-    
+    console.log('Create new user!');
 };
