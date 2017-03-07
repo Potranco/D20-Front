@@ -6,7 +6,8 @@ function User(idUser=false){
     this.campaigns=[];
     this.chars=[];
     this.urls={
-        'token':'/test/mock_json/token.json'
+        'token':'/test/mock_json/token.json',
+        'campaigns_json':'/test/mock_json/campaigns.json'
     };
     this.token=false;
     this.events=new ArrayFunctions();
@@ -75,7 +76,7 @@ User.prototype.saveToken=function(token){
 };
 
 User.prototype.loadCampaigns=function(){
-    this.campaigns=new Campaigns(this.idUser,this.events.onLoadCampaigns);
+    this.campaigns=new Campaigns(this.idUser,this.token,this.urls.campaigns_json,this.events.onLoadCampaigns);
 };
 User.prototype.onLoadCampaigns=function(){
     console.log('onloadCampaigns');
