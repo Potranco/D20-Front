@@ -2,7 +2,6 @@
 
 function User(){
     this.name='';
-    this.idUser=false;
     this.campaigns=[];
     this.chars=[];
     this.urls={
