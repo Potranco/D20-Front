@@ -8,7 +8,7 @@ function User(idUser=false){
         'token':'/test/mock_json/token.json'
     };
     this.token=false;
-    this.events=new PubSub();
+    this.events=new ArrayFunctions();
     this.createEvents();
     this.events.isLogin();
 }
@@ -17,7 +17,7 @@ User.prototype.createEvents=function(){
     this.events.add('isLogin',this.callData.bind(this));
     this.events.add('onLoadUser',this.loadUser.bind(this));
     this.events.add('onNewUser',this.createNewUser.bind(this));
-    this.events.add('onLoadCampaigns',this.loadChars.bind(this));
+    this.events.add('onLoadCampaigns',this.onLoadCampaigns.bind(this));
 };
 
 User.prototype.loadToken=function(){
@@ -73,9 +73,12 @@ User.prototype.saveToken=function(token){
 User.prototype.loadCampaigns=function(){
     this.campaigns=new Campaigns(this.idUser,this.events.onLoadCampaigns);
 };
+User.prototype.onLoadCampaigns=function(){
+    console.log('onLoadCampaigns');
+};
 
-User.prototype.loadChars=function(){
-    console.log('load chars');
+User.prototype.loadChars=function(result){
+    console.log('loadChars');
 };
 
 User.prototype.createNewUser=function(){

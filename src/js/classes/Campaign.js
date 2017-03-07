@@ -1,8 +1,16 @@
 /* Campaigns class */
+/*
 
+objCampaign:{
+            "id":"00000",
+            "name":"name Campaign",
+            "masterId":"0000",
+            "users":["0000"]
+        }
+
+*/
 function Campaign(objCampaign){
-    this.id=objCampaign.id;
-    this.name=objCampaign.name;
-    this.masterId=objCampaign.masterId;
-    this.users=objCampaign.users;
+    for (key in objCampaign){
+        this[key]=objCampaign[key];
+    }
 }

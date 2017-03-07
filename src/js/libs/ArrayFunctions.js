@@ -15,6 +15,7 @@ PubSub.prototype.add=function(name,callback){
 	if (this.callbacks[name]===undefined) {
 		this.callbacks[name]=[];
 		this[name]=function(){
+			console.log(this);
 			var aux = this.callbacks[name].length;
 			for (var i=0;i<aux;i++){
 				this.callbacks[name][i].apply(null,arguments);
