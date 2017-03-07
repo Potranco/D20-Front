@@ -1,4 +1,4 @@
-/* Campaigns class */
+// Class Campaigns extend Elements
 
 function Campaigns(idUser,token,url,callback=null){
    Elements.apply(this,arguments);

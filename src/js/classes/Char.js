@@ -1,16 +1,15 @@
-/* Campaigns class */
+// Class Char
 /*
-
-objCampaign:{
+objChar:{
             "id":"00000",
-            "name":"name Campaign",
+            "name":"name Char",
             "masterId":"0000",
             "users":["0000"]
         }
 
 */
-function Char(objCampaign){
-    for (key in objCampaign){
-        this[key]=objCampaign[key];
+function Char(objChar){
+    for (key in objChar){
+        this[key]=objChar[key];
     }
 }

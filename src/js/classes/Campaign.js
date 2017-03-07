@@ -1,4 +1,4 @@
-/* Campaigns class */
+// Class Campaign
 /*
 
 objCampaign:{
