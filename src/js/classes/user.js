@@ -15,8 +15,9 @@ function User(idUser=false){
 
 User.prototype.createEvents=function(){
     this.events.add('isLogin',this.callData.bind(this));
-    this.events.add('loadUser',this.loadUser.bind(this));
-    this.events.add('newUser',this.createNewUser.bind(this));
+    this.events.add('onLoadUser',this.loadUser.bind(this));
+    this.events.add('onNewUser',this.createNewUser.bind(this));
+    this.events.add('onLoadCampaigns',this.loadChars.bind(this));
 };
 
 User.prototype.loadToken=function(){
@@ -39,7 +40,7 @@ User.prototype.callData=function(){
         };
         loadFile(ajax)
             .then(function(resolve){
-                this.events.loadUser(JSON.parse(resolve));
+                this.events.onLoadUser(JSON.parse(resolve));
             }.bind(this),
             function(error) {
                 console.error("Failed!", error);
@@ -47,7 +48,7 @@ User.prototype.callData=function(){
             });    
     }
     else {
-        this.events.newUser();
+        this.events.onNewUser();
     }
     
 };
@@ -70,7 +71,11 @@ User.prototype.saveToken=function(token){
 };
 
 User.prototype.loadCampaigns=function(){
-    this.campaigns=new Camapigns(this.idUser);
+    this.campaigns=new Campaigns(this.idUser,this.events.onLoadCampaigns);
+};
+
+User.prototype.loadChars=function(){
+    console.log('load chars');
 };
 
 User.prototype.createNewUser=function(){
