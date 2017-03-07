@@ -1,6 +1,6 @@
 // Class Chars extend Elements
 
-function Chars(idUser,token,url,callback=null){
+function Chars(token,url,callback=null){
    Elements.apply(this,arguments);
 }
 Chars.prototype=Object.create(Elements.prototype);

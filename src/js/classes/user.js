@@ -1,8 +1,8 @@
 // Class User
 
-function User(idUser=false){
+function User(){
     this.name='';
-    this.idUser=idUser;
+    this.idUser=false;
     this.campaigns=[];
     this.chars=[];
     this.urls={
@@ -10,16 +10,15 @@ function User(idUser=false){
         'campaigns_json':'/test/mock_json/campaigns.json',
         'chars_json':'/test/mock_json/chars.json'
     };
-    this.token=false;
+    this.token=this.loadToken();
     this.events=new ArrayFunctions();
-    
     this.createEvents();
     this.events.isLogin();
 }
 
 User.prototype.createEvents=function(){
     this.events.add('isLogin',this.callData.bind(this));
-    this.events.add('onLoadUser',this.loadUser.bind(this));
+    this.events.add('onLoadUser',this.onLoadUser.bind(this));
     this.events.add('onNewUser',this.createNewUser.bind(this));
     this.events.add('onLoadCampaigns',this.onLoadCampaigns.bind(this));
     this.events.add('onLoadChars',this.onLoadChars.bind(this));
@@ -27,14 +26,13 @@ User.prototype.createEvents=function(){
 
 User.prototype.loadToken=function(){
     if(typeof Stores!==undefined){
-        this.token=localStorage.getItem('token');
-        return true;
+        return this.token=localStorage.getItem('token');
     }
     return false;
 };
 
 User.prototype.callData=function(){
-    if ((this.idUser)&&(this.loadToken())) {
+    if (this.token) {
         var ajax={
             url:this.urls.token,
             method: 'GET',
@@ -58,7 +56,7 @@ User.prototype.callData=function(){
     
 };
 
-User.prototype.loadUser=function(json){
+User.prototype.onLoadUser=function(json){
     this.insertData(json);
     this.saveToken(this.token);
     this.loadCampaigns();
@@ -77,16 +75,22 @@ User.prototype.saveToken=function(token){
 };
 
 User.prototype.loadCampaigns=function(){
-    this.campaigns=new Campaigns(this.idUser,this.token,this.urls.campaigns_json,this.events.onLoadCampaigns);
+    this.campaigns=new Campaigns(this.token,this.urls.campaigns_json,this.events.onLoadCampaigns);
 };
-User.prototype.onLoadCampaigns=function(){
+User.prototype.onLoadCampaigns=function(result){
+    if (!result) {
+        console.log('0 campaigns');
+    }
     console.log('onloadCampaigns');
 };
 
 User.prototype.loadChars=function(result){
-    this.chars=new Chars(this.idUser,this.token,this.urls.chars_json,this.events.onLoadChars);
+    this.chars=new Chars(this.token,this.urls.chars_json,this.events.onLoadChars);
 };
 User.prototype.onLoadChars=function(result){
+    if (!result) {
+        console.log('0 chars');
+    }
     console.log('onloadChars');
 };
 

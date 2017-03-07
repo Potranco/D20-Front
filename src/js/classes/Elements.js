@@ -1,27 +1,25 @@
 /* Campaigns class */
 
-function Elements(idUser,token,url,callback=null){
-    this.idUser=idUser;
-    this.url=url;
+function Elements(token,url,callback=null){
     this.token=token;
+    this.url=url;
     this.load(callback);
 }
 
 Elements.prototype.load=function(callback){
-    if (!this.idUser) callback(false);
+    if (!this.token) return callback(false);
     var ajax={
             url:this.url,
             method: 'GET',
             params:{
                 token:this.token,
-                idUser:this.idUser
             }
         };
         
     loadFile(ajax)
         .then(function(resolve){
             this.add(JSON.parse(resolve));
-            callback();
+            callback(true);
         }.bind(this),
         function(error) {
             console.error("Failed!", error);

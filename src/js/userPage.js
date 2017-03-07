@@ -2,7 +2,7 @@
 
 
 window.onload=function(){
-    user = new User('id_1');
+    user = new User();
 };
 
 
