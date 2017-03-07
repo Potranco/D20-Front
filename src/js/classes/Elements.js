@@ -5,7 +5,6 @@ function Elements(idUser,token,url,callback=null){
     this.url=url;
     this.token=token;
     this.load(callback);
-    console.log(this.url)
 }
 
 Elements.prototype.load=function(callback){

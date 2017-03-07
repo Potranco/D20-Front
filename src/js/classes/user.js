@@ -7,7 +7,8 @@ function User(idUser=false){
     this.chars=[];
     this.urls={
         'token':'/test/mock_json/token.json',
-        'campaigns_json':'/test/mock_json/campaigns.json'
+        'campaigns_json':'/test/mock_json/campaigns.json',
+        'chars_json':'/test/mock_json/chars.json'
     };
     this.token=false;
     this.events=new ArrayFunctions();
@@ -83,7 +84,7 @@ User.prototype.onLoadCampaigns=function(){
 };
 
 User.prototype.loadChars=function(result){
-    this.chars=new Chars(this.idUser,this.events.onLoadChars)
+    this.chars=new Chars(this.idUser,this.token,this.urls.chars_json,this.events.onLoadChars);
 };
 User.prototype.onLoadChars=function(result){
     console.log('onloadChars');

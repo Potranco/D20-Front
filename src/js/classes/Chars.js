@@ -1,39 +1,13 @@
-/* Campaigns class */
-
-function Chars(idUser,callback){
-    this.idUser=idUser;
-    this.urls={
-        'campaigns':'/test/mock_json/chars.json'
-    };
-    this.chars=[];
-    this.loadCampaigns(callback);
+function Chars(idUser,token,url,callback=null){
+   Elements.apply(this,arguments);
+   this.chars=[];
 }
-
-Chars.prototype.loadCampaigns=function(callback){
-    if (!this.idUser) callback(false);
-    
-     var ajax={
-            url:this.urls.campaigns,
-            method: 'GET',
-            params:{
-                token:this.token,
-                idUser:this.idUser
-            }
-        };
-        
-    loadFile(ajax)
-        .then(function(resolve){
-            this.add(JSON.parse(resolve));
-            callback();
-        }.bind(this),
-        function(error) {
-            console.error("Failed!", error);
-            return false;
-        });    
-};
+Chars.prototype=Object.create(Elements.prototype);
+Chars.prototype.constructor=Chars;
 
 Chars.prototype.add=function(json){
     var aux=json.chars.length;
+    
     for (var i=0;i<aux;i++){
         this.chars.push(new Char(json.chars[i]));
     }
