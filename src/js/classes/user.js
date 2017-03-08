@@ -25,7 +25,7 @@ User.prototype.createEvents=function(){
 
 User.prototype.loadToken=function(){
     if(typeof Stores!==undefined){
-        return this.token=localStorage.getItem('token');
+        return localStorage.getItem('token');
     }
     return false;
 };
