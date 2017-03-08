@@ -48,7 +48,8 @@ function validateSafari() {
     console.log('Validate safari');
 }
 
-function newUser(){
+function newUser(event){
+    event.preventDefault();
      var ajax={
             url:'/test/mock_json/token.json',
             method: 'GET',
