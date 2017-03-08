@@ -28,7 +28,7 @@ Elements.prototype.load=function(callback){
 };
 
 Elements.prototype.add=function(json){
-    for(key in json){
+    for(var key in json){
         this[key]=json[key];
     }
 };

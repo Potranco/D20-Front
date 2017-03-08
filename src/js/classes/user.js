@@ -83,7 +83,7 @@ User.prototype.onLoadCampaigns=function(result){
     console.log('onloadCampaigns');
 };
 
-User.prototype.loadChars=function(result){
+User.prototype.loadChars=function(){
     this.chars=new Chars(this.token,this.urls.chars_json,this.events.onLoadChars);
 };
 User.prototype.onLoadChars=function(result){

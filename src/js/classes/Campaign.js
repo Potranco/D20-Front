@@ -10,7 +10,7 @@ objCampaign:{
 
 */
 function Campaign(objCampaign){
-    for (key in objCampaign){
+    for (var key in objCampaign){
         this[key]=objCampaign[key];
     }
 }
