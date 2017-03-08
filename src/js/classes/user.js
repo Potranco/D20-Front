@@ -7,7 +7,8 @@ function User(){
     this.urls={
         'token':'/test/mock_json/token.json',
         'campaigns_json':'/test/mock_json/campaigns.json',
-        'chars_json':'/test/mock_json/chars.json'
+        'chars_json':'/test/mock_json/chars.json',
+        'newUser':'index.html'
     };
     this.token=this.loadToken();
     this.events=new ArrayFunctions();
@@ -94,5 +95,5 @@ User.prototype.onLoadChars=function(result){
 };
 
 User.prototype.createNewUser=function(){
-    console.log('Create new user!');
+    location.href=this.urls['newUser'];
 };

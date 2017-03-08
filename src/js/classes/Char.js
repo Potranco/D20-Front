@@ -9,7 +9,7 @@ objChar:{
 
 */
 function Char(objChar){
-    for (key in objChar){
+    for (var key in objChar){
         this[key]=objChar[key];
     }
 }

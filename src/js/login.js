@@ -40,10 +40,32 @@ window.onload=function(){
                           idError:'LoginPasswordError'
                       }
             }
-    },validateSafari);
+    },newUser);
 };
 
 
 function validateSafari() {
     console.log('Validate safari');
+}
+
+function newUser(){
+     var ajax={
+            url:'/test/mock_json/token.json',
+            method: 'GET',
+            params:{
+                email:document.getElementById('LoginEmail').value,
+                pass:document.getElementById('LoginPassword').value
+            }
+        };
+        loadFile(ajax)
+            .then(function(resolve){
+                if(typeof Stores!==undefined){
+                   localStorage.setItem('token',JSON.parse(resolve).token);
+                }
+                location.href='user_01.html';
+            },
+            function(error) {
+                console.error("Failed!", error);
+                return false;
+            }); 
 }
