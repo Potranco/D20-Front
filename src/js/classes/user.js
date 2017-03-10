@@ -43,7 +43,8 @@ User.prototype.callData=function(){
         };
         loadFile(ajax)
             .then(function(resolve){
-                this.events.onLoadUser(JSON.parse(resolve));
+                this.insertData(JSON.parse(resolve));
+                this.events.onLoadUser();
             }.bind(this),
             function(error) {
                 console.error("Failed!", error);
@@ -56,8 +57,7 @@ User.prototype.callData=function(){
     
 };
 
-User.prototype.onLoadUser=function(json){
-    this.insertData(json);
+User.prototype.onLoadUser=function(){
     this.saveToken(this.token);
     this.loadCampaigns();
     this.loadChars();
@@ -78,20 +78,12 @@ User.prototype.loadCampaigns=function(){
     this.campaigns=new Campaigns(this.token,this.urls.campaigns_json,this.events.onLoadCampaigns.bind(this.events));
 };
 User.prototype.onLoadCampaigns=function(){
-    if (!this.campaigns) {
-        console.log('0 campaigns');
-    }
-    console.log('onloadCampaigns');
 };
 
 User.prototype.loadChars=function(){
     this.chars=new Chars(this.token,this.urls.chars_json,this.events.onLoadChars.bind(this.events));
 };
 User.prototype.onLoadChars=function(result){
-    if (!result) {
-        console.log('0 chars');
-    }
-    console.log('onloadChars');
 };
 
 User.prototype.createNewUser=function(){
