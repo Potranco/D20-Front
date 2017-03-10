@@ -11,7 +11,7 @@ function User(){
         'newUser':'index.html'
     };
     this.token=this.loadToken();
-    this.events=new ArrayFunctions();
+    this.events=new PubSub();
     this.createEvents();
     this.events.isLogin();
 }
@@ -75,17 +75,17 @@ User.prototype.saveToken=function(token){
 };
 
 User.prototype.loadCampaigns=function(){
-    this.campaigns=new Campaigns(this.token,this.urls.campaigns_json,this.events.onLoadCampaigns);
+    this.campaigns=new Campaigns(this.token,this.urls.campaigns_json,this.events.onLoadCampaigns.bind(this.events));
 };
-User.prototype.onLoadCampaigns=function(result){
-    if (!result) {
+User.prototype.onLoadCampaigns=function(){
+    if (!this.campaigns) {
         console.log('0 campaigns');
     }
     console.log('onloadCampaigns');
 };
 
 User.prototype.loadChars=function(){
-    this.chars=new Chars(this.token,this.urls.chars_json,this.events.onLoadChars);
+    this.chars=new Chars(this.token,this.urls.chars_json,this.events.onLoadChars.bind(this.events));
 };
 User.prototype.onLoadChars=function(result){
     if (!result) {
