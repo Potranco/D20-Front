@@ -1,7 +1,7 @@
 // control js Login
 
 
-window.onload=function(){
+document.addEventListener("DOMContentLoaded", function(event) {
     window.validate=new validateFormHTML5('FormLogin',{
             formValidate:'true',
             rules: {
@@ -41,7 +41,7 @@ window.onload=function(){
                       }
             }
     },newUser);
-};
+});
 
 
 function validateSafari() {
