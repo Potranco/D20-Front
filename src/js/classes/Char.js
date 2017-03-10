@@ -2,14 +2,14 @@
 /*
 objChar:{
             "id":"00000",
-            "name":"name Char",
-            "masterId":"0000",
-            "users":["0000"]
+            "idUser":"0000",
+            "name":"namechar",
         }
 
 */
 function Char(objChar){
-    for (var key in objChar){
-        this[key]=objChar[key];
-    }
+    var {id,name,idUser}=objChar;
+    this.id=id;
+    this.name=name;
+    this.idUser=idUser;
 }

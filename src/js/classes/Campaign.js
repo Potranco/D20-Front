@@ -10,7 +10,9 @@ objCampaign:{
 
 */
 function Campaign(objCampaign){
-    for (var key in objCampaign){
-        this[key]=objCampaign[key];
-    }
+    var {id,name,masterId,users}=objCampaign;
+    this.id=id;
+    this.name=name;
+    this.masterId=masterId;
+    this.users=users;
 }

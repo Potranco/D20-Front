@@ -64,9 +64,10 @@ User.prototype.onLoadUser=function(json){
 };
 
 User.prototype.insertData=function(json){
-    for (var key in json){
-        this[key]=json[key];
-    }
+    var {name,token}=json;
+    
+    this.name=name;
+    this.token=token;
 };
 User.prototype.saveToken=function(token){
      if(typeof Stores!==undefined){
