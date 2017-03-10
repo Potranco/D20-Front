@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Project D20</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="application/javascript" src="/src/js/utils.js"></script>
+    <script type="application/javascript" src="/src/js/userPage.js"></script>
+    <script type="application/javascript" src="/src/js/classes/user.js"></script>
+    <script type="application/javascript" src="/src/js/classes/Elements.js"></script>
+    <script type="application/javascript" src="/src/js/classes/Campaigns.js"></script>
+    <script type="application/javascript" src="/src/js/classes/Campaign.js"></script>
+    <script type="application/javascript" src="/src/js/classes/Chars.js"></script>
+    <script type="application/javascript" src="/src/js/classes/Char.js"></script>
+    <script type="application/javascript" src="/src/js/libs/ArrayFunctions.js"></script>
+    
+    <link rel="stylesheet" href="./libs/mocha_1.18.2/mocha.css">
+    <script src="./libs/mocha_1.18.2/mocha.js"></script>
+	<script src="./libs/chai_1.9.0/chai.js"></script>
+	<script src="./libs/sinon_1.15.4/sinon.min.js"></script>
+	
+    <script src="./test/userPage.js"></script>
+</head>
+<body>
+    <div style="display:none">
+    <header>
+        <h1>Project D20</h1>
+        <nav>
+            <a href="#"><img src="" alt=""><span>Nombre</span></a>
+        </nav>
+    </header>
+    <nav class="UserMenu">
+            <a href="#">Ajustes</a>
+            <a href="#">Cerrar</a>
+    </nav>
+    <div class="wrap">
+        <div class="MeCampaigns">
+            <h2>Campañas</h2>
+            <ul></ul>
+            <a href="#">+ Campañas</a>
+        </div>
+        <div class="MeChars">
+            <h2>Personajes</h2>
+            <ul></ul>
+            <a href="#">Crear personaje</a>
+        </div>
+    </div>
+    </div>
+     <div id="mocha"></div>
+</body>
+</html>
