@@ -2,8 +2,8 @@
 
 function User(){
     this.name='';
-    this.campaigns=[];
-    this.chars=[];
+    this.campaigns=null;
+    this.chars=null;
     this.urls={
         'token':'/test/mock_json/token.json',
         'campaigns_json':'/test/mock_json/campaigns.json',
@@ -65,7 +65,6 @@ User.prototype.onLoadUser=function(json){
 
 User.prototype.insertData=function(json){
     var {name,token}=json;
-    
     this.name=name;
     this.token=token;
 };
