@@ -1,4 +1,4 @@
-// control js Login
+// JS user page
 
 
 document.addEventListener("DOMContentLoaded", function(event) {
@@ -9,11 +9,25 @@ document.addEventListener("DOMContentLoaded", function(event) {
 });
 
 function addCampaignsHTML() {
-    console.log(user.getCampaigns());
+    var campaign=user.getCampaigns();
+    var aux=campaign.length;
+    var objHTML=document.querySelector('.MeCampaigns ul');
+    for (var i=0;i<aux;i++) {
+        var li=document.createElement('li');
+        li.innerHTML=campaign[i].name;
+        objHTML.appendChild(li);
+    }
 }
 
 function addCharsHTML() {
-    console.log(user.getChars());
+    var chars=user.getChars();
+    var aux=chars.length;
+    var objHTML=document.querySelector('.MeChars ul');
+    for (var i=0;i<aux;i++) {
+        var li=document.createElement('li');
+        li.innerHTML=chars[i].name;
+        objHTML.appendChild(li);
+    }
 }
 
 function addUserHTML() {
