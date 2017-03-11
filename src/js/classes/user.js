@@ -1,7 +1,7 @@
 // Class User
 
 function User(){
-    this.name='';
+    this.name='anonymous';
     this.campaigns=null;
     this.chars=null;
     this.urls={
@@ -88,4 +88,20 @@ User.prototype.onLoadChars=function(result){
 
 User.prototype.createNewUser=function(){
     location.href=this.urls['newUser'];
+};
+
+User.prototype.getName=function(){
+    return this.name;
+};
+
+User.prototype.getCampaigns=function(){
+    return Object.keys(this.campaigns).map(function(x) {
+        return this.campaigns[x];
+    }.bind(this));
+};
+
+User.prototype.getChars=function(){
+    return Object.keys(this.chars).map(function(x) {
+        return this.chars[x];
+    }.bind(this));
 };

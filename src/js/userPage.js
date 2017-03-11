@@ -2,20 +2,20 @@
 
 
 document.addEventListener("DOMContentLoaded", function(event) {
-    user = new User();
+    window.user = new User();
     user.events.add('onLoadUser',addUserHTML);
     user.events.add('onLoadCampaigns',addCampaignsHTML);
     user.events.add('onLoadChars',addCharsHTML);
 });
 
 function addCampaignsHTML() {
-    console.log('Añadimos campañas');
+    console.log(user.getCampaigns());
 }
 
 function addCharsHTML() {
-    console.log('Añadimos chars');
+    console.log(user.getChars());
 }
 
 function addUserHTML() {
-    console.log('Añadir User');
+    document.getElementById('userName').innerHTML=user.getName();
 }
