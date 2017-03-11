@@ -1,6 +1,7 @@
 // Class User
 
 function User(){
+    this.idUser=null;
     this.name='anonymous';
     this.campaigns=null;
     this.chars=null;
@@ -64,9 +65,10 @@ User.prototype.onLoadUser=function(){
 };
 
 User.prototype.insertData=function(json){
-    var {name,token}=json;
+    var {name,token,idUser}=json;
     this.name=name;
     this.token=token;
+    this.idUser=idUser;
 };
 User.prototype.saveToken=function(token){
      if(typeof Stores!==undefined){
@@ -75,13 +77,13 @@ User.prototype.saveToken=function(token){
 };
 
 User.prototype.loadCampaigns=function(){
-    this.campaigns=new Campaigns(this.token,this.urls.campaigns_json,this.events.onLoadCampaigns.bind(this.events));
+    this.campaigns=new Campaigns(this.idUser,this.token,this.urls.campaigns_json,this.events.onLoadCampaigns.bind(this.events));
 };
 User.prototype.onLoadCampaigns=function(){
 };
 
 User.prototype.loadChars=function(){
-    this.chars=new Chars(this.token,this.urls.chars_json,this.events.onLoadChars.bind(this.events));
+    this.chars=new Chars(this.idUser,this.token,this.urls.chars_json,this.events.onLoadChars.bind(this.events));
 };
 User.prototype.onLoadChars=function(result){
 };

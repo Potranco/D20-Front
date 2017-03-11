@@ -1,16 +1,17 @@
 /* Campaigns class */
 
-function Elements(token,url,callback=null){
-    this.load(token,url,callback);
+function Elements(idUser,token,url,callback=null){
+    this.load(idUser,token,url,callback);
 }
 
-Elements.prototype.load=function(token,url,callback){
+Elements.prototype.load=function(idUser,token,url,callback){
     if (!token) return callback(false);
     var ajax={
             url:url,
             method: 'GET',
             params:{
                 token:token,
+                idUser:idUser
             }
         };
         

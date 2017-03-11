@@ -1,6 +1,6 @@
 // Class Campaigns extend Elements
 
-function Campaigns(token,url,callback=null){
+function Campaigns(idUser,token,url,callback=null){
    Elements.apply(this,arguments);
 }
 Campaigns.prototype=Object.create(Elements.prototype);
