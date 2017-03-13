@@ -1,55 +1,38 @@
-// ============
-// MIXINS
-// ============
-
-
-// ============
-// TYPOGRAPHY
-// ============
 
 @mixin xs-text {
     font-family:$primaryFont;
-    font-size: 11px;
+    font-size: $fontSizeXS;
 }
 
 @mixin s-text {
     font-family:$primaryFont;
-    font-size: 12px;
+    font-size: $fontSizeS;
 }
 
 @mixin m-text {
     font-family:$primaryFont;
-    font-size: 14px;
+    font-size: $fontSizeM;
 }
 
 @mixin l-text {
     font-family:$primaryFont;
-    font-size: 16px;
-}
-
-@mixin ml-text {
-    font-family:$primaryFont;
-    font-size: 18px;
+    font-size: $fontSizeL;
 }
 
 @mixin xl-text {
     font-family:$primaryFont;
-    font-size: 24px;
+    font-size: $fontSizeXL;
 }
 
 @mixin xxl-text {
     font-family:$primaryFont;
-    font-size: 30px;
+    font-size: $fontSizeXXL;
 }
 
-@mixin xxxl-text {
+@mixin logo-text {
     font-family:$primaryFont;
-    font-size: 40px;
+    font-size: $fontSizeLogo;
 }
-
-// ============
-// ROUNDED CORNERS
-// ============
 
 @mixin rounded-corners($radius){
     -webkit-border-radius: $radius;
@@ -57,14 +40,8 @@
     border-radius: $radius;
 }
 
-
-// ============
-// TEXT
-// ============
-
 @mixin vertical-center-text(){
     //justify-content: center;
-
     -ms-display: flex;
     display: -webkit-box;
     display: -moz-box;
@@ -77,4 +54,8 @@
     -ms-flex-align: center;
     -webkit-align-items: center;
     align-items: center;
+}
+
+@mixin breakpoint($class) {
+    @media (max-width: $class) { @content; }
 }

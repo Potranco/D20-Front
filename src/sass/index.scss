@@ -1,6 +1,6 @@
 @import "common/common";
 @import "components/forms";
-@import "components/buttons";
+
 
 main {
     
@@ -14,31 +14,8 @@ main {
     @include vertical-center-text();
 }
 
-.txt_shop-name_error {
-    color: $cherryD_color;
-}
-
-
-.lbl_create_shop_error{
-    display:none;
-    width:100%;
-    padding-top:10px;
-    text-align:left;
-    font-weight:$boldFont;
-
-    @include s-text;
-}
-
-
-a.lbl_create_shop_legal{
-    font-weight:$boldFont;
-}
-
 
 .line_with_text_style{
-    padding:0 10px;
-    background-color:#7AC1C7;
-    vertical-align:bottom;
 
     // phone
     @include s-text;
