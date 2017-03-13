@@ -1,8 +1,8 @@
 // control js Login
 
 
-window.onload=function(){
-    window.loginValidate=new validateFormHTML5('FormLogin',{
+document.addEventListener("DOMContentLoaded", function(event) {
+    window.validate=new validateFormHTML5('FormLogin',{
             formValidate:'true',
             rules: {
                         LoginEmail: {
@@ -34,22 +34,39 @@ window.onload=function(){
                           labelCSS:'',
                           idError:'LoginEmailError'
                       },
-                      LoginPassword: {
+                       LoginPassword: {
                           inputCSS:'',
                           labelCSS:'',
                           idError:'LoginPasswordError'
                       }
             }
-    },saveUser);
-};
+    },newUser);
+});
 
 
+function validateSafari() {
+    console.log('Validate safari');
+}
 
-function saveUser() {
-   if (typeof(Storage) !== "undefined") {
-    localStorage.setItem("email",document.getElementById('LoginEmail').value);
-   }
-   else {
-    document.cookie="userEmail="+document.getElementById('LoginEmail').value;
-   }
+function newUser(event){
+    event.preventDefault();
+     var ajax={
+            url:'/test/mock_json/token.json',
+            method: 'GET',
+            params:{
+                email:document.getElementById('LoginEmail').value,
+                pass:document.getElementById('LoginPassword').value
+            }
+        };
+        loadFile(ajax)
+            .then(function(resolve){
+                if(typeof Stores!==undefined){
+                   localStorage.setItem('token',JSON.parse(resolve).token);
+                }
+                location.href='user_01.html';
+            },
+            function(error) {
+                console.error("Failed!", error);
+                return false;
+            }); 
 }

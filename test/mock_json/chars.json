@@ -1,0 +1,29 @@
+{
+    "chars":[
+        {
+            "id":"1",
+            "idUser":"123",
+            "name":"Nombre char 1",
+            "race":"Elfo",
+            "lvl":"5",
+            "class":"Guerrero"
+        },
+        {
+            "id":"2",
+            "idUser":"123",
+            "name":"Nombre char 2",
+            "race":"Enano",
+            "lvl":"1",
+            "class":"Mago"
+        },
+        {
+            "id":"3",
+            "idUser":"123",
+            "name":"Nombre char 3",
+            "race":"Elfo oscuro",
+            "lvl":"25",
+            "class":"Clerigo"
+        }
+        
+    ]
+}

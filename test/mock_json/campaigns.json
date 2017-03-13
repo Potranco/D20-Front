@@ -1,0 +1,26 @@
+{
+    "campaigns":[
+        {
+            "id":"100",
+            "name":"Nombre Campaign 1",
+            "masterId":"123",
+            "users":["123","124","125"],
+            "chars":["1","2"]
+        },
+        {
+            "id":"2",
+            "name":"Nombre Campaign 2",
+            "masterId":"124",
+            "users":["123","124","125"],
+            "chars":["1","2"]
+        },
+        {
+            "id":"3",
+            "name":"Nombre Campaign 3",
+            "masterId":"124",
+            "users":["123","124","125"],
+            "chars":["1","2"]
+        }
+        
+    ]
+}

@@ -4,16 +4,28 @@
     <title>Project D20</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="application/javascript" src="js/login.js"></script>
-    <script type="application/javascript" src="js/classes/user.js"></script>
+    <script type="application/javascript" src="/src/js/utils.js"></script>
+    <script type="application/javascript" src="/src/js/login.js"></script>
+    <script type="application/javascript" src="/src/js/libs/validateFormHTML5.js"></script>
+    
+    <link rel="stylesheet" href="./libs/mocha_1.18.2/mocha.css">
+    <script src="./libs/mocha_1.18.2/mocha.js"></script>
+	<script src="./libs/chai_1.9.0/chai.js"></script>
+	<script src="./libs/sinon_1.15.4/sinon.min.js"></script>
+	
+    <script src="./test/login.js"></script>
+    
 </head>
 <body>
-    <h1>Project D20</h1>
-    <form>
-        <input type="email" name="email" placeholder="Email" required=required>
-        <input type="password" name="password" placeholder="Contraseña"  required=required>
-        <button type="button">Entrar / Nuevo</button>
+     <form id="FormLogin" action="#" style="display:none">
+        <input type="text" name="email" id="LoginEmail" placeholder="Email">
+        <span id="LoginEmailError"></span>
+        <input type="text" name="password" id="LoginPassword" placeholder="Contraseña">
+        <span id="LoginPasswordError"></span>
+        <button type="submit">Entrar / Nuevo</button>
     </form>
-    
+
+    <div id="mocha"></div>
+
 </body>
 </html>
