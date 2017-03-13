@@ -1,7 +1,7 @@
 // JS user page
 
 
-document.addEventListener("DOMContentLoaded", function(event) {
+document.addEventListener("DOMContentLoaded", function() {
     window.user = new User();
     user.events.add('onLoadUser',addUserHTML);
     user.events.add('onLoadCampaigns',addCampaignsHTML);
@@ -15,7 +15,10 @@ function addCampaignsHTML() {
     var objHTML=document.querySelector('.MeCampaigns ul');
     for (var i=0;i<aux;i++) {
         var li=document.createElement('li');
-        li.innerHTML=campaign[i].name;
+        var link=document.createElement('a');
+        link.setAttribute('href','./campaign/'+campaign[i].id);
+        link.innerHTML=campaign[i].name;
+        li.appendChild(link);
         objHTML.appendChild(li);
     }
 }
@@ -26,7 +29,10 @@ function addCharsHTML() {
     var objHTML=document.querySelector('.MeChars ul');
     for (var i=0;i<aux;i++) {
         var li=document.createElement('li');
-        li.innerHTML=chars[i].name;
+        var link=document.createElement('a');
+        link.setAttribute('href','./char/'+chars[i].id);
+        link.innerHTML=chars[i].name;
+        li.appendChild(link);
         objHTML.appendChild(li);
     }
 }
