@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     user.events.add('onLoadUser',addUserHTML);
     user.events.add('onLoadCampaigns',addCampaignsHTML);
     user.events.add('onLoadChars',addCharsHTML);
+    user.loadCampaigns().loadChars();
 });
 
 function addCampaignsHTML() {

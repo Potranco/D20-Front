@@ -60,8 +60,6 @@ User.prototype.callData=function(){
 
 User.prototype.onLoadUser=function(){
     this.saveToken(this.token);
-    this.loadCampaigns();
-    this.loadChars();
 };
 
 User.prototype.insertData=function(json){
@@ -76,17 +74,17 @@ User.prototype.saveToken=function(token){
      }
 };
 
-User.prototype.loadCampaigns=function(){
+User.prototype.loadCampaigns=function(callback){
     this.campaigns=new Campaigns(this.idUser,this.token,this.urls.campaigns_json,this.events.onLoadCampaigns.bind(this.events));
+    return this;
 };
-User.prototype.onLoadCampaigns=function(){
-};
+User.prototype.onLoadCampaigns=function(){};
 
 User.prototype.loadChars=function(){
     this.chars=new Chars(this.idUser,this.token,this.urls.chars_json,this.events.onLoadChars.bind(this.events));
+    return this;
 };
-User.prototype.onLoadChars=function(result){
-};
+User.prototype.onLoadChars=function(result){};
 
 User.prototype.createNewUser=function(){
     location.href=this.urls['newUser'];
@@ -98,11 +96,12 @@ User.prototype.getName=function(){
 
 User.prototype.getCampaigns=function(){
     return Object.keys(this.campaigns).map(function(x) {
-        return this.campaigns[x];
-    }.bind(this));
+                return this.campaigns[x];
+            }.bind(this));
 };
 
 User.prototype.getChars=function(){
+    
     return Object.keys(this.chars).map(function(x) {
         return this.chars[x];
     }.bind(this));
