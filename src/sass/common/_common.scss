@@ -28,6 +28,7 @@ body {
     color:#444;
     -webkit-text-stroke: 1px transparent;
     height:100%;
+    font-family: s-text;
 }
 
 html {
@@ -55,7 +56,7 @@ input[type="text"], input[type="email"], input[type="search"], input[type="passw
 // ========================
 
 h1 {
-
+  @include logo-text;
 }
 
 p {

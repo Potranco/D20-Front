@@ -461,68 +461,52 @@ body {
   color: #444;
   -webkit-text-stroke: 1px transparent;
   height: 100%;
+  font-family: s-text;
 }
 
-/* line 33, ../sass/common/_common.scss */
+/* line 34, ../sass/common/_common.scss */
 html {
   height: 100%;
 }
 
-/* line 38, ../sass/common/_common.scss */
+/* line 39, ../sass/common/_common.scss */
 li {
   list-style-type: none;
 }
 
-/* line 42, ../sass/common/_common.scss */
+/* line 43, ../sass/common/_common.scss */
 a {
   text-decoration: none;
 }
 
-/* line 46, ../sass/common/_common.scss */
+/* line 47, ../sass/common/_common.scss */
 input[type="text"], input[type="email"], input[type="search"], input[type="password"] {
   -webkit-appearance: caret;
   -moz-appearance: caret;
   /* mobile firefox too! */
 }
 
-/* line 5, ../sass/index.scss */
-main {
-  height: 100%;
+/* line 58, ../sass/common/_common.scss */
+h1 {
+  font-family: verdana, helvetica, sans-serif;
+  font-size: 50px;
 }
 
-/* line 9, ../sass/index.scss */
-.block_1 {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  -ms-display: flex;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-flex-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-}
-
-/* line 18, ../sass/index.scss */
-.line_with_text_style {
+/* line 4, ../sass/index.scss */
+.wrap {
   font-family: verdana, helvetica, sans-serif;
   font-size: 12px;
 }
 @media (max-width: 768px) {
-  /* line 18, ../sass/index.scss */
-  .line_with_text_style {
+  /* line 4, ../sass/index.scss */
+  .wrap {
     font-family: verdana, helvetica, sans-serif;
     font-size: 10px;
   }
 }
 @media (max-width: 980px) {
-  /* line 18, ../sass/index.scss */
-  .line_with_text_style {
+  /* line 4, ../sass/index.scss */
+  .wrap {
     font-family: verdana, helvetica, sans-serif;
     font-size: 10px;
   }
