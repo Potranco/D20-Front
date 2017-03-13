@@ -1,0 +1,207 @@
+// ============
+// COMMON
+// ============
+@import "susy";
+@import "breakpoint";
+@import "normalize";
+@import "variables";
+@import "mixins";
+@import "../components/buttons";
+
+@import "compass/utilities/sprites";
+$iconos-layout: smart;
+@import "sprite/*.png";
+@include all-sprite-sprites;
+
+@import "sprite";
+
+// grid
+$susy: (
+    columns: 12,
+    gutters: 0,
+    gutter-override: no-gutters
+);
+
+
+// JS breakpoints
+.css_view{
+  // Mobile
+  content: 'small';
+
+  // Tablet
+  @include breakpoint($mediumResolution){
+    content: 'medium';
+  }
+
+  // Desktop
+  @include breakpoint($bigResolution){
+    content: 'big';
+  }
+}
+
+
+// ============
+// GENERAL
+// ============
+
+
+body {
+    margin: 0px 0px 0px 0px;
+    background-color: $backgroundColor;
+    color:#444;
+    -webkit-text-stroke: 1px transparent;
+    height:100%;
+}
+
+html {
+	font-size: 14px;
+    height:100%;
+}
+
+
+li {
+    list-style-type: none;
+}
+
+a {
+    color:$aquaD_color;
+    text-decoration:none;
+}
+
+input[type="text"], input[type="email"], input[type="search"], input[type="password"] {
+    -webkit-appearance: caret;
+    -moz-appearance: caret; /* mobile firefox too! */
+}
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600);
+
+
+// ============
+// LABELS
+// ============
+
+label {
+
+  &.title {
+    @include xl-text;
+  }
+
+  &.m-Text {
+    @include m-text;
+  }
+
+  &.l-Text {
+    @include l-text;
+  }
+}
+
+
+
+// ============
+// MODAL
+// ============
+
+#basic-modal-content {
+    display:none;
+    position:relative;
+    overflow:hidden;
+    height:auto;
+    width:100%;
+
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+
+    // phone
+    display:block;
+
+    // tablet
+    @include breakpoint($mediumResolution){
+        display: -webkit-flex;
+        display: flex;
+    }
+
+    // desktop
+    @include breakpoint($bigResolution){
+        display: -webkit-flex;
+        display: flex;
+    }
+
+}
+
+.simplemodal-wrap{
+    overflow:hidden !important;;
+}
+
+.simplemodal-container{
+    overflow:hidden;
+    height:100%;
+    width:100% !important;
+}
+
+
+// ========================
+// SHAKE ANIMATION - REBOTE
+// ========================
+
+@-webkit-keyframes shake {
+  0% { -webkit-transform: translate(0px, 4px)  }
+  20% { -webkit-transform: translate(0px, -4px) }
+  40% { -webkit-transform: translate(0px, 4px) }
+  60% { -webkit-transform: translate(0px, -4px) }
+  80% { -webkit-transform: translate(0px, 4px) }
+  100% { -webkit-transform: translate(0px, 4px) }
+}
+
+.shake {
+  -webkit-animation-name: shake;
+  -webkit-animation-duration: 1.2s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -webkit-transform-origin: 50% 100%;
+}
+
+
+// ========================
+// GENERIC CSS TO TAGS
+// ========================
+
+h1 {
+  @include xxl-text;
+  font-weight: normal;
+  text-transform: lowercase;
+  margin-bottom:24px;
+}
+
+p {
+  @include s-text;
+  line-height:15px;
+  margin-bottom:20px;
+}
+
+button,input[type='submit']{
+  background-color:$buttonBackColor1;color:$textColor6;border:none;text-align:center;cursor:pointer;padding: 0 24px 0 24px;text-transform:uppercase;
+  @include xs-text;
+  @include rounded-corners(3px);
+  // phone
+  min-height:60px;
+  width:100%;
+
+  // tablet
+  @include breakpoint($mediumResolution){
+      min-height:40px;
+      width:auto;
+  }
+ 
+  &:hover {background:$buttonBackColor1Hover}
+  &:disabled {background:$buttonBackColor1Disabled}
+}
+
+
+
+
+
+

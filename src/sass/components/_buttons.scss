@@ -1,0 +1,132 @@
+
+
+
+@mixin commonButtons {
+	text-align: center;
+	cursor:pointer;
+	@include s-text;
+	@include rounded-corners(3px);
+	padding: 0 0 0 0;
+
+	@include xs-text;
+}
+
+@mixin primaryButton {
+	height: 34px;
+    background-color: $aquaD_color;
+    color: $color6;
+    border: none;
+
+    @include commonButtons;
+}
+
+
+@mixin secundaryButton {
+    height: 34px;
+    background: $color6;
+    border:solid 1px $metalF_color;
+    color: $aquaD_color;
+
+    @include commonButtons;
+    padding:0px 24px;
+    
+}
+
+@mixin disabledButton{
+	background-color:$aquaD_color;
+	color:$metalD_color;
+	cursor: auto;
+}
+
+
+/*
+primaryButton
+
+Your standard button suitable for clicking.
+
+:hover   - Highlights when hovering.
+:active   - Do not press this big, shiny, red button.
+:focus   - Do not press this big, shiny, red button.
+.disabledButton   - Do not press this big, shiny, red button.
+:disabled - disabled
+
+Markup:
+<!-- Buttons (actions) -->
+<button class="primaryButton">Button primary default</button>
+
+Style guide: primaryButton
+*/
+
+
+.primaryButton {
+	@include primaryButton;
+
+    &:hover {
+        background-color:$aquaC_color;
+        color:white;
+        text-decoration:none;
+    }
+    &:active {
+        background-color:$aquaC_color;
+        color:white;
+    }
+    &:focus {
+        outline: 0;
+    }
+    &.disabledButton{
+        @include disabledButton;
+    }
+    &:disabled{
+        @include disabledButton;
+    }
+}
+
+/*
+secundaryButton
+
+Your standard button suitable for clicking.
+
+:hover   - Highlights when hovering.
+:active   - Do not press this big, shiny, red button.
+:focus   - Do not press this big, shiny, red button.
+.disabledButton   - Do not press this big, shiny, red button.
+:disabled - disabled
+
+Markup:
+<!-- Buttons (actions) -->
+<button class="primaryButton">Button primary default</button>
+
+Style guide: secundaryButton
+*/
+
+.secundaryButton {
+	@include secundaryButton;
+
+	&:hover {
+		color:$color6;
+		border:solid 1px $metalE_color;
+		text-decoration:none;
+	}
+	&:active {
+	    color:$aquaB_color;
+	}
+	&:focus {
+		outline: 0;
+	}
+	&.disabledButton{
+		@include disabledButton;
+	}
+	&:disabled{
+		@include disabledButton;
+	}
+}
+
+
+
+.bigButton {
+    width:224px !Important;
+    height:60px;
+    font-weight:bold;
+
+    @include s-text;
+}
