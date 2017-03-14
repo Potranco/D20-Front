@@ -21,12 +21,19 @@ PubSub.prototype.add=function(name,callback){
 			}
 		};
 	}
-	this.callbacks[name].push(callback);
+	var index=this.callbacks[name].push(callback)-1;
+	return {
+          delete: function () {
+              this.callbacks[name].splice(index, 1);
+          }.bind(this)
+	}
 };
 
-PubSub.prototype.remove=function(name){
+PubSub.prototype.removeAll=function(name){
 	this.callbacks[name]=undefined;
 	this[name]=function(){console.error('Function['+name+'] removed.');};
 };
+
+
 
 
