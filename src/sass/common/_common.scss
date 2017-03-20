@@ -1,0 +1,69 @@
+// ============
+// COMMON
+// ============
+
+@import "normalize";
+@import "variables";
+@import "mixins";
+
+// JS breakpoints
+.css_view{
+  // Mobile
+  content: 'small';
+
+  // Tablet
+  @include breakpoint($mediumResolution){
+    content: 'medium';
+  }
+
+  // Desktop
+  @include breakpoint($bigResolution){
+    content: 'big';
+  }
+}
+
+body {
+    margin: 0px 0px 0px 0px;
+    background-color: #fff;
+    color:#444;
+    -webkit-text-stroke: 1px transparent;
+    height:100%;
+    font-family: s-text;
+    font-size:fontSizeS;
+}
+
+html {
+  height:100%;
+}
+
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration:none;
+}
+
+input[type="text"], input[type="email"], input[type="search"], input[type="password"] {
+    -webkit-appearance: caret;
+    -moz-appearance: caret; /* mobile firefox too! */
+}
+
+
+
+// ========================
+// GENERIC CSS TO TAGS
+// ========================
+
+h1 {
+  @include logo-text;
+}
+
+p {
+
+}
+
+
+
+

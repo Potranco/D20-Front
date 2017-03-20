@@ -1,0 +1,19 @@
+@import "common/common";
+@import "components/forms";
+
+.wrap{
+
+    // phone
+    @include s-text;
+
+    // tablet
+    @include breakpoint($mediumResolution){
+        @include xs-text;
+    }
+
+    // desktop
+    @include breakpoint($bigResolution){
+        @include xs-text;
+    }
+}
+

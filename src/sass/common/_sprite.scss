@@ -1,0 +1,175 @@
+.ico_cross_l {
+    width: sprite-sprite-width(ico_cross_l)  + 5px;
+    height: sprite-sprite-height(ico_cross_l);
+    vertical-align:text-bottom;
+
+    // Mobile
+    display: inline-block;
+
+    // Tablet
+    @include breakpoint($mediumResolution) {
+        display:none;
+    }
+
+    // Desktop
+    @include breakpoint($bigResolution) {
+        display:none;
+    }
+}
+
+.ico_cross_s {
+    width: sprite-sprite-width(ico_cross_s) + 5px;
+    height: sprite-sprite-height(ico_cross_s);
+    vertical-align:sub;
+
+    // Mobile
+    display:none;
+
+    // Tablet
+    @include breakpoint($mediumResolution) {
+        display: inline-block;
+    }
+
+    // Desktop
+    @include breakpoint($bigResolution) {
+        display: inline-block;
+    }
+}
+
+// for desktop & tablet
+.ico_facebook_s {
+    width: sprite-sprite-width(ico_facebook_s);
+    height: sprite-sprite-height(ico_facebook_s);
+    float:left;
+    margin-top:6px;
+    margin-right:10px;
+
+    // Mobile
+    display:none;
+
+    // Tablet
+    @include breakpoint($mediumResolution) {
+        display: inline-block;
+    }
+
+    // Desktop
+    @include breakpoint($bigResolution) {
+        display: inline-block;
+    }
+}
+
+// for mobile
+.ico_facebook_l {
+    width: sprite-sprite-width(ico_facebook_l);
+    height: sprite-sprite-height(ico_facebook_l);
+    float:left;
+    margin-top:9px;
+    margin-right:6px;
+
+    // Mobile
+    display: inline-block;
+
+    // Tablet
+    @include breakpoint($mediumResolution) {
+        display:none;
+    }
+
+    // Desktop
+    @include breakpoint($bigResolution) {
+        display:none;
+    }
+}
+
+// for desktop & tablet
+.ico_google_s {
+    width: sprite-sprite-width(ico_google_s);
+    height: sprite-sprite-height(ico_google_s);
+    float:left;
+    margin-top:7px;
+    margin-right:8px;
+
+    // Mobile
+    display:none;
+
+    // Tablet
+    @include breakpoint($mediumResolution) {
+        display: inline-block;
+    }
+
+    // Desktop
+    @include breakpoint($bigResolution) {
+        display: inline-block;
+    }
+}
+
+// for mobile
+.ico_google_l {
+    width: sprite-sprite-width(ico_google_l);
+    height: sprite-sprite-height(ico_google_l);
+    float:left;
+    margin-top:11px;
+    margin-right:6px;
+
+    // Mobile
+    display: inline-block;
+
+    // Tablet
+    @include breakpoint($mediumResolution) {
+        display:none;
+    }
+
+    // Desktop
+    @include breakpoint($bigResolution) {
+        display:none;
+    }
+}
+
+.ico_next {
+    width: sprite-sprite-width(ico_next) + 5px;
+    height: sprite-sprite-height(ico_next);
+    cursor: pointer;
+    float:left;
+}
+
+.ico_next_hover {
+    width: sprite-sprite-width(ico_next_hover) + 5px;
+    height: sprite-sprite-height(ico_next_hover);
+    float:left;
+}
+
+.ico_plus {
+    width: sprite-sprite-width(ico_plus) + 5px;
+    height: sprite-sprite-height(ico_plus);
+    float:left;
+}
+
+.ico_settings {
+    width: sprite-sprite-width(ico_settings) + 5px;
+    height: sprite-sprite-height(ico_settings);
+    cursor: pointer;
+    float:left;
+}
+
+.ico_settings_hover {
+    width: sprite-sprite-width(ico_settings_hover) + 5px;
+    height: sprite-sprite-height(ico_settings_hover);
+    float:left;
+}
+
+.ico_edit_white {
+    width: sprite-sprite-width(ico_edit_white) + 5px;
+    height: sprite-sprite-height(ico_edit_white);
+    float:left;
+}
+
+.ico_delete_white {
+    width: sprite-sprite-width(ico_delete_white) + 5px;
+    height: sprite-sprite-height(ico_delete_white);
+    float:left;
+}
+
+.ico_cross_aqua {
+    width: sprite-sprite-width(ico_cross_aqua) + 5px;
+    height: sprite-sprite-height(ico_cross_aqua);
+    float:left;
+}
