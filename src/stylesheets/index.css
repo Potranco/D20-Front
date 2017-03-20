@@ -462,31 +462,32 @@ body {
   -webkit-text-stroke: 1px transparent;
   height: 100%;
   font-family: s-text;
+  font-size: fontSizeS;
 }
 
-/* line 34, ../sass/common/_common.scss */
+/* line 35, ../sass/common/_common.scss */
 html {
   height: 100%;
 }
 
-/* line 39, ../sass/common/_common.scss */
+/* line 40, ../sass/common/_common.scss */
 li {
   list-style-type: none;
 }
 
-/* line 43, ../sass/common/_common.scss */
+/* line 44, ../sass/common/_common.scss */
 a {
   text-decoration: none;
 }
 
-/* line 47, ../sass/common/_common.scss */
+/* line 48, ../sass/common/_common.scss */
 input[type="text"], input[type="email"], input[type="search"], input[type="password"] {
   -webkit-appearance: caret;
   -moz-appearance: caret;
   /* mobile firefox too! */
 }
 
-/* line 58, ../sass/common/_common.scss */
+/* line 59, ../sass/common/_common.scss */
 h1 {
   font-family: verdana, helvetica, sans-serif;
   font-size: 50px;
