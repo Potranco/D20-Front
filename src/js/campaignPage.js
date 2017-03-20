@@ -4,8 +4,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     window.user = new User();
     user.events.add('onLoadUser',addUserHTML);
-    user.events.add('onLoadChars',addCharsHTML);
-    user.loadChars();
+    window.campaign=new Campaign('123',user.token,onloadCampaign);
 });
 
 function addCharsHTML() {
@@ -24,4 +23,8 @@ function addCharsHTML() {
 
 function addUserHTML() {
     document.getElementById('userName').innerHTML=user.getName();
+}
+
+function onloadCampaign() {
+    console.log(window.campaign);
 }
