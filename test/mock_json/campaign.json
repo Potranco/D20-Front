@@ -2,7 +2,7 @@
             "id":"100",
             "name":"Nombre Campaign 1",
             "masterId":"123",
-            "users":["123","124","125"],
+            "players":["123","124","125"],
             "chars":["1","2"]
 
 }

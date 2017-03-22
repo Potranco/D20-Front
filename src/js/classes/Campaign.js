@@ -14,7 +14,7 @@ function Campaign(idCampaign=false,token,callback=null){
     this.token=token;
     this.name='';
     this.masterId='';
-    this.idUsers=[];
+    this.players=[];
     this.idChars=[];
     this.chars=[];
     this.url=['/test/mock_json/campaign.json',
@@ -36,12 +36,13 @@ Campaign.prototype.load=function(){
             method: 'GET',
             params:{
                 token:this.token,
-                idUser:this.id
+                campaign:this.id
             }
         };
         loadFile(ajax)
             .then(function(resolve){
                 this.insertData(JSON.parse(resolve));
+                this.loadChars();
                 this.events.onLoadCampaign();
             }.bind(this),
             function(error) {
@@ -55,15 +56,13 @@ Campaign.prototype.load=function(){
 };
 
 Campaign.prototype.insertData=function(objCampaign){
-    var {id,name,masterId,users,chars}=objCampaign;
+    var {id,name,masterId,players,chars}=objCampaign;
     this.id=id;
     this.name=name;
     this.masterId=masterId;
-    this.idUsers=users;
+    this.players=players;
     this.idChars=chars;
     this.chars=[];
-    this.loadChars();
-    
 };
 
 Campaign.prototype.onLoadCampaign=function(){};

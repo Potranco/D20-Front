@@ -2,7 +2,7 @@
     "chars":[
         {
             "id":"1",
-            "idUser":"123",
+            "player":"123",
             "name":"Cascador",
             "race":"Elfo",
             "lvl":"5",
@@ -10,7 +10,7 @@
         },
         {
             "id":"2",
-            "idUser":"123",
+            "player":"123",
             "name":"Sacapuntas",
             "race":"Enano",
             "lvl":"1",
@@ -18,7 +18,7 @@
         },
         {
             "id":"3",
-            "idUser":"123",
+            "player":"123",
             "name":"Lombrizco",
             "race":"Elfo oscuro",
             "lvl":"25",
