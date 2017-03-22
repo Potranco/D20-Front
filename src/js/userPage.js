@@ -15,7 +15,7 @@ function addCampaignsHTML() {
     for (var i=0;i<aux;i++) {
         var li=document.createElement('li');
         var link=document.createElement('a');
-        link.setAttribute('href','./campaign/'+campaign[i].id);
+        link.setAttribute('href','./campaign_01.html?code='+campaign[i].id);
         link.innerHTML=campaign[i].name;
         li.appendChild(link);
         objHTML.appendChild(li);
