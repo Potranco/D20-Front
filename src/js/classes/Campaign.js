@@ -9,13 +9,11 @@ objCampaign:{
         }
 
 */
-function Campaign(idCampaign=false,token,callback=null){
+function Campaign(idCampaign=false,token=false,callback=null){
     this.id=idCampaign;
     this.token=token;
     this.name='';
     this.masterId='';
-    this.players=[];
-    this.idChars=[];
     this.chars=[];
     this.url=['/test/mock_json/campaign.json',
               '/test/mock_json/chars.json'
@@ -42,8 +40,15 @@ Campaign.prototype.load=function(){
         loadFile(ajax)
             .then(function(resolve){
                 this.insertData(JSON.parse(resolve));
-                this.loadChars();
                 this.events.onLoadCampaign();
+                if (this.chars.length) {
+                    this.events.onLoadChars();
+                }
+                else {
+                    this.chars=[];
+                    this.loadChars();
+                }
+                
             }.bind(this),
             function(error) {
                 console.error("Failed!", error);
@@ -56,32 +61,38 @@ Campaign.prototype.load=function(){
 };
 
 Campaign.prototype.insertData=function(objCampaign){
-    var {id,name,masterId,players,chars}=objCampaign;
+    var {id,name,master_id,_d20_characters}=objCampaign;
+    var aux=_d20_characters.length;
+    
     this.id=id;
     this.name=name;
-    this.masterId=masterId;
-    this.players=players;
-    this.idChars=chars;
+    this.masterId=master_id.id;
+    this.masterName=master_id.name;
     this.chars=[];
+
+    for (var i=0;i<aux;i++){
+        this.chars.push(new Char(_d20_characters[i]));
+    }
+    if (!this.chars.length) this.events.onLoadChars();
 };
 
 Campaign.prototype.onLoadCampaign=function(){};
 
-Campaign.prototype.loadChars=function(idChars){
+Campaign.prototype.loadChars=function(){
+    
     if (this.token) {
         var ajax={
             url:this.url[1],
             method: 'GET',
             params:{
                 token:this.token,
-                idUser:this.id,
-                chars:this.idChars.join(',')
+                campaign:this.id
             }
         };
         loadFile(ajax)
             .then(function(resolve){
-                JSON.parse(resolve).chars.map(function(value){
-                    this.chars.push(new Char(value))
+                JSON.parse(resolve)._d20_characters.map(function(value){
+                    this.chars.push(new Char(value));
                 }.bind(this));
                 this.events.onLoadChars();
             }.bind(this),
@@ -98,7 +109,7 @@ Campaign.prototype.loadChars=function(idChars){
     return this;
 };
 
-Campaign.prototype.onLoadChars=function(){console.log(this)};
+Campaign.prototype.onLoadChars=function(){};
 
 
 /* CampaignJSON use in userPage */

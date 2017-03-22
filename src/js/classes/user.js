@@ -60,6 +60,8 @@ User.prototype.callData=function(){
 
 User.prototype.onLoadUser=function(){
     this.saveToken(this.token);
+    this.loadCampaigns();
+    this.loadChars();
 };
 
 User.prototype.insertData=function(json){

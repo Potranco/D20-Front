@@ -16,7 +16,7 @@ function addCharsHTML() {
         var li=document.createElement('li');
         var link=document.createElement('a');
         link.setAttribute('href','./char/'+chars[i].id);
-        link.innerHTML=chars[i].name+' ('+chars[i].classe+') - '+chars[i].lvl;
+        link.innerHTML=chars[i].name+' ('+chars[i].race+' '+chars[i].classChar+') - '+chars[i].level;
         li.appendChild(link);
         objHTML.appendChild(li);
     }
@@ -28,4 +28,5 @@ function addUserHTML() {
 
 function addCampaignHTML() {
     document.querySelector('.Campaign h2').innerHTML=campaign.name;
+    document.querySelector('#MasterName').innerHTML=campaign.masterName;
 }

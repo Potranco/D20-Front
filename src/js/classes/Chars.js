@@ -7,9 +7,9 @@ Chars.prototype=Object.create(Elements.prototype);
 Chars.prototype.constructor=Chars;
 
 Chars.prototype.add=function(json){
-    var aux=json.chars.length;
+    var aux=json._d20_characters.length;
     for (var i=0;i<aux;i++){
-        this[i]=new Char(json.chars[i]);
+        this[i]=new Char(json._d20_characters[i]);
     }
 };
 

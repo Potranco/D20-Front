@@ -1,26 +1,365 @@
 {
     "campaigns":[
         {
-            "id":"100",
-            "name":"Nombre Campaign 1",
-            "masterId":"123",
-            "players":["123","124","125"],
-            "chars":["1","2"]
+      "id": 1,
+      "name": "Test Campaing",
+      "master_id": {
+        "id": 3,
+        "name": "Sheldon \"Shelly\" Cooper",
+        "email": "noemail@for.sheldon.com",
+        "password": "n3287hf87g2837gb2db974g9267g3"
+      },
+      "_d20_characters": [
+        {
+          "id": 1,
+          "name": "Mamporrero",
+          "deity_name": "Dios",
+          "age": 12,
+          "size": 1,
+          "ability_s_t_r": 15,
+          "ability_d_e_x": 14,
+          "ability_c_o_n": 15,
+          "ability_i_n_t": 11,
+          "ability_w_i_s": 12,
+          "ability_c_h_a": 10,
+          "saving_fortitude": 0,
+          "saving_reflex": 0,
+          "saving_will": 0,
+          "base_attack": 0,
+          "spell_resistance": 0,
+          "hit_points": 10,
+          "armor_class": 0,
+          "initiative": 0,
+          "speed": 0,
+          "damage_reduction": 0,
+          "player_id": {
+            "id": 1,
+            "name": "Paco",
+            "email": "paco@pacoworld.es",
+            "password": "1234"
+          },
+          "race_id": {
+            "id": 3,
+            "name": "Enano escudo",
+            "size": 0,
+            "ability_s_t_r": 0,
+            "ability_d_e_x": 0,
+            "ability_c_o_n": 0,
+            "ability_i_n_t": 0,
+            "ability_w_i_s": 0,
+            "ability_c_h_a": 0,
+            "saving_fortitude": 0,
+            "saving_reflex": 0,
+            "saving_will": 0,
+            "base_attack": 0,
+            "spell_resistance": 0,
+            "hit_points": 0,
+            "armor_class": 0,
+            "initiative": 0,
+            "speed": 0,
+            "damage_reduction": 0
+          },
+          "class_id": {
+            "id": 1,
+            "name": "Guerrero"
+          }
         },
         {
-            "id":"2",
-            "name":"Nombre Campaign 2",
-            "masterId":"124",
-            "players":["123","124","125"],
-            "chars":["1","2"]
-        },
-        {
-            "id":"3",
-            "name":"Nombre Campaign 3",
-            "masterId":"124",
-            "players":["123","124","125"],
-            "chars":["1","2"]
+          "id": 2,
+          "name": "LanzaSapos",
+          "deity_name": "deity",
+          "age": 100,
+          "size": 1,
+          "ability_s_t_r": 11,
+          "ability_d_e_x": 11,
+          "ability_c_o_n": 11,
+          "ability_i_n_t": 14,
+          "ability_w_i_s": 12,
+          "ability_c_h_a": 12,
+          "saving_fortitude": 0,
+          "saving_reflex": 0,
+          "saving_will": 0,
+          "base_attack": 0,
+          "spell_resistance": 0,
+          "hit_points": 6,
+          "armor_class": 0,
+          "initiative": 0,
+          "speed": 0,
+          "damage_reduction": 0,
+          "player_id": {
+            "id": 2,
+            "name": "Manolo",
+            "email": "manolo@pacoworld.es",
+            "password": "1234"
+          },
+          "race_id": {
+            "id": 2,
+            "name": "Elfo normal",
+            "size": 0,
+            "ability_s_t_r": 0,
+            "ability_d_e_x": 0,
+            "ability_c_o_n": 0,
+            "ability_i_n_t": 0,
+            "ability_w_i_s": 0,
+            "ability_c_h_a": 0,
+            "saving_fortitude": 0,
+            "saving_reflex": 0,
+            "saving_will": 0,
+            "base_attack": 0,
+            "spell_resistance": 0,
+            "hit_points": 0,
+            "armor_class": 0,
+            "initiative": 0,
+            "speed": 0,
+            "damage_reduction": 0
+          },
+          "class_id": {
+            "id": 2,
+            "name": "Mago"
+          }
         }
+      ]
+    },
+      {
+      "id": 1,
+      "name": "Test Campaing 2",
+      "master_id": {
+        "id": 3,
+        "name": "Sheldon \"Shelly\" Cooper",
+        "email": "noemail@for.sheldon.com",
+        "password": "n3287hf87g2837gb2db974g9267g3"
+      },
+      "_d20_characters": [
+        {
+          "id": 1,
+          "name": "Mamporrero",
+          "deity_name": "Dios",
+          "age": 12,
+          "size": 1,
+          "ability_s_t_r": 15,
+          "ability_d_e_x": 14,
+          "ability_c_o_n": 15,
+          "ability_i_n_t": 11,
+          "ability_w_i_s": 12,
+          "ability_c_h_a": 10,
+          "saving_fortitude": 0,
+          "saving_reflex": 0,
+          "saving_will": 0,
+          "base_attack": 0,
+          "spell_resistance": 0,
+          "hit_points": 10,
+          "armor_class": 0,
+          "initiative": 0,
+          "speed": 0,
+          "damage_reduction": 0,
+          "player_id": {
+            "id": 1,
+            "name": "Paco",
+            "email": "paco@pacoworld.es",
+            "password": "1234"
+          },
+          "race_id": {
+            "id": 3,
+            "name": "Enano escudo",
+            "size": 0,
+            "ability_s_t_r": 0,
+            "ability_d_e_x": 0,
+            "ability_c_o_n": 0,
+            "ability_i_n_t": 0,
+            "ability_w_i_s": 0,
+            "ability_c_h_a": 0,
+            "saving_fortitude": 0,
+            "saving_reflex": 0,
+            "saving_will": 0,
+            "base_attack": 0,
+            "spell_resistance": 0,
+            "hit_points": 0,
+            "armor_class": 0,
+            "initiative": 0,
+            "speed": 0,
+            "damage_reduction": 0
+          },
+          "class_id": {
+            "id": 1,
+            "name": "Guerrero"
+          }
+        },
+        {
+          "id": 2,
+          "name": "LanzaSapos",
+          "deity_name": "deity",
+          "age": 100,
+          "size": 1,
+          "ability_s_t_r": 11,
+          "ability_d_e_x": 11,
+          "ability_c_o_n": 11,
+          "ability_i_n_t": 14,
+          "ability_w_i_s": 12,
+          "ability_c_h_a": 12,
+          "saving_fortitude": 0,
+          "saving_reflex": 0,
+          "saving_will": 0,
+          "base_attack": 0,
+          "spell_resistance": 0,
+          "hit_points": 6,
+          "armor_class": 0,
+          "initiative": 0,
+          "speed": 0,
+          "damage_reduction": 0,
+          "player_id": {
+            "id": 2,
+            "name": "Manolo",
+            "email": "manolo@pacoworld.es",
+            "password": "1234"
+          },
+          "race_id": {
+            "id": 2,
+            "name": "Elfo normal",
+            "size": 0,
+            "ability_s_t_r": 0,
+            "ability_d_e_x": 0,
+            "ability_c_o_n": 0,
+            "ability_i_n_t": 0,
+            "ability_w_i_s": 0,
+            "ability_c_h_a": 0,
+            "saving_fortitude": 0,
+            "saving_reflex": 0,
+            "saving_will": 0,
+            "base_attack": 0,
+            "spell_resistance": 0,
+            "hit_points": 0,
+            "armor_class": 0,
+            "initiative": 0,
+            "speed": 0,
+            "damage_reduction": 0
+          },
+          "class_id": {
+            "id": 2,
+            "name": "Mago"
+          }
+        }
+      ]
+    },
+      {
+      "id": 1,
+      "name": "Test Campaing 3",
+      "master_id": {
+        "id": 3,
+        "name": "Sheldon \"Shelly\" Cooper",
+        "email": "noemail@for.sheldon.com",
+        "password": "n3287hf87g2837gb2db974g9267g3"
+      },
+      "_d20_characters": [
+        {
+          "id": 1,
+          "name": "Mamporrero",
+          "deity_name": "Dios",
+          "age": 12,
+          "size": 1,
+          "ability_s_t_r": 15,
+          "ability_d_e_x": 14,
+          "ability_c_o_n": 15,
+          "ability_i_n_t": 11,
+          "ability_w_i_s": 12,
+          "ability_c_h_a": 10,
+          "saving_fortitude": 0,
+          "saving_reflex": 0,
+          "saving_will": 0,
+          "base_attack": 0,
+          "spell_resistance": 0,
+          "hit_points": 10,
+          "armor_class": 0,
+          "initiative": 0,
+          "speed": 0,
+          "damage_reduction": 0,
+          "player_id": {
+            "id": 1,
+            "name": "Paco",
+            "email": "paco@pacoworld.es",
+            "password": "1234"
+          },
+          "race_id": {
+            "id": 3,
+            "name": "Enano escudo",
+            "size": 0,
+            "ability_s_t_r": 0,
+            "ability_d_e_x": 0,
+            "ability_c_o_n": 0,
+            "ability_i_n_t": 0,
+            "ability_w_i_s": 0,
+            "ability_c_h_a": 0,
+            "saving_fortitude": 0,
+            "saving_reflex": 0,
+            "saving_will": 0,
+            "base_attack": 0,
+            "spell_resistance": 0,
+            "hit_points": 0,
+            "armor_class": 0,
+            "initiative": 0,
+            "speed": 0,
+            "damage_reduction": 0
+          },
+          "class_id": {
+            "id": 1,
+            "name": "Guerrero"
+          }
+        },
+        {
+          "id": 2,
+          "name": "LanzaSapos",
+          "deity_name": "deity",
+          "age": 100,
+          "size": 1,
+          "ability_s_t_r": 11,
+          "ability_d_e_x": 11,
+          "ability_c_o_n": 11,
+          "ability_i_n_t": 14,
+          "ability_w_i_s": 12,
+          "ability_c_h_a": 12,
+          "saving_fortitude": 0,
+          "saving_reflex": 0,
+          "saving_will": 0,
+          "base_attack": 0,
+          "spell_resistance": 0,
+          "hit_points": 6,
+          "armor_class": 0,
+          "initiative": 0,
+          "speed": 0,
+          "damage_reduction": 0,
+          "player_id": {
+            "id": 2,
+            "name": "Manolo",
+            "email": "manolo@pacoworld.es",
+            "password": "1234"
+          },
+          "race_id": {
+            "id": 2,
+            "name": "Elfo normal",
+            "size": 0,
+            "ability_s_t_r": 0,
+            "ability_d_e_x": 0,
+            "ability_c_o_n": 0,
+            "ability_i_n_t": 0,
+            "ability_w_i_s": 0,
+            "ability_c_h_a": 0,
+            "saving_fortitude": 0,
+            "saving_reflex": 0,
+            "saving_will": 0,
+            "base_attack": 0,
+            "spell_resistance": 0,
+            "hit_points": 0,
+            "armor_class": 0,
+            "initiative": 0,
+            "speed": 0,
+            "damage_reduction": 0
+          },
+          "class_id": {
+            "id": 2,
+            "name": "Mago"
+          }
+        }
+      ]
+    }
         
     ]
 }

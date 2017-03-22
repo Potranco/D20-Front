@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", function() {
     user.events.add('onLoadUser',addUserHTML);
     user.events.add('onLoadCampaigns',addCampaignsHTML);
     user.events.add('onLoadChars',addCharsHTML);
-    user.loadCampaigns().loadChars();
 });
 
 function addCampaignsHTML() {
@@ -24,6 +23,7 @@ function addCampaignsHTML() {
 }
 
 function addCharsHTML() {
+    console.log(addCharsHTML);
     var chars=user.getChars();
     var aux=chars.length;
     var objHTML=document.querySelector('.MeChars ul');
