@@ -3,26 +3,26 @@
         {
             "id":"1",
             "idUser":"123",
-            "name":"Nombre char 1",
+            "name":"Cascador",
             "race":"Elfo",
             "lvl":"5",
-            "class":"Guerrero"
+            "classe":"Guerrero"
         },
         {
             "id":"2",
             "idUser":"123",
-            "name":"Nombre char 2",
+            "name":"Sacapuntas",
             "race":"Enano",
             "lvl":"1",
-            "class":"Mago"
+            "classe":"Mago"
         },
         {
             "id":"3",
             "idUser":"123",
-            "name":"Nombre char 3",
+            "name":"Lombrizco",
             "race":"Elfo oscuro",
             "lvl":"25",
-            "class":"Clerigo"
+            "classe":"Clerigo"
         }
         
     ]

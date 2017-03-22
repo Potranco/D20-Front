@@ -17,12 +17,14 @@ function Campaign(idCampaign=false,token,callback=null){
     this.idUsers=[];
     this.idChars=[];
     this.chars=[];
-    this.url='/test/mock_json/campaign.json';
+    this.url=['/test/mock_json/campaign.json',
+              '/test/mock_json/chars.json'
+    ];
     
     this.events=new PubSub();
     this.events.add('onLoadCampaign',this.onLoadCampaign.bind(this));
     this.events.add('onLoadCampaign',callback);
-    this.events.add('onLoadChars',this.onLoadChars);
+    this.events.add('onLoadChars',this.onLoadChars.bind(this));
     
     this.load();
 }
@@ -30,7 +32,7 @@ function Campaign(idCampaign=false,token,callback=null){
 Campaign.prototype.load=function(){
      if (this.token) {
         var ajax={
-            url:this.url,
+            url:this.url[0],
             method: 'GET',
             params:{
                 token:this.token,
@@ -60,19 +62,44 @@ Campaign.prototype.insertData=function(objCampaign){
     this.idUsers=users;
     this.idChars=chars;
     this.chars=[];
+    this.loadChars();
     
 };
 
-Campaign.prototype.onLoadCampaign=function(){
-};
+Campaign.prototype.onLoadCampaign=function(){};
 
 Campaign.prototype.loadChars=function(idChars){
-    this.chars=new Chars(this.token,this.urls.chars_json,this.events.onLoadChars.bind(this.events));
+    if (this.token) {
+        var ajax={
+            url:this.url[1],
+            method: 'GET',
+            params:{
+                token:this.token,
+                idUser:this.id,
+                chars:this.idChars.join(',')
+            }
+        };
+        loadFile(ajax)
+            .then(function(resolve){
+                JSON.parse(resolve).chars.map(function(value){
+                    this.chars.push(new Char(value))
+                }.bind(this));
+                this.events.onLoadChars();
+            }.bind(this),
+            function(error) {
+                console.error("Failed!", error);
+                return false;
+            });    
+    }
+    else {
+        console.error('Token Failed!');
+    }
+    
+    
     return this;
 };
 
-Campaign.prototype.onLoadChars=function(){
-};
+Campaign.prototype.onLoadChars=function(){console.log(this)};
 
 
 /* CampaignJSON use in userPage */

@@ -8,8 +8,18 @@ objChar:{
 
 */
 function Char(objChar){
-    var {id,name,idUser}=objChar;
+    var {id,idUser,
+        name,
+        race,
+        lvl,
+        classe
+        }=objChar;
+
     this.id=id;
-    this.name=name;
     this.idUser=idUser;
+    this.name=name;
+    this.race=race;
+    this.lvl=lvl;
+    this.classe=classe;
+   
 }
