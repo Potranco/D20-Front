@@ -23,7 +23,6 @@ function addCampaignsHTML() {
 }
 
 function addCharsHTML() {
-    console.log(addCharsHTML);
     var chars=user.getChars();
     var aux=chars.length;
     var objHTML=document.querySelector('.MeChars ul');
