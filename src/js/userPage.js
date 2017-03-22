@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", function() {
     user.events.add('onLoadUser',addUserHTML);
     user.events.add('onLoadCampaigns',addCampaignsHTML);
     user.events.add('onLoadChars',addCharsHTML);
-    user.loadCampaigns().loadChars();
 });
 
 function addCampaignsHTML() {
@@ -16,7 +15,7 @@ function addCampaignsHTML() {
     for (var i=0;i<aux;i++) {
         var li=document.createElement('li');
         var link=document.createElement('a');
-        link.setAttribute('href','./campaign/'+campaign[i].id);
+        link.setAttribute('href','./campaign_01.html?code='+campaign[i].id);
         link.innerHTML=campaign[i].name;
         li.appendChild(link);
         objHTML.appendChild(li);

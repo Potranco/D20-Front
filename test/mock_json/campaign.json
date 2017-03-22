@@ -1,6 +1,13 @@
 {
-   "_d20_characters": [
-   
+      "id": 1,
+      "name": "Test Campaing",
+      "master_id": {
+        "id": 3,
+        "name": "Sheldon \"Shelly\" Cooper",
+        "email": "noemail@for.sheldon.com",
+        "password": "n3287hf87g2837gb2db974g9267g3"
+      },
+      "_d20_characters": [
         {
           "id": 1,
           "name": "Mamporrero",
@@ -57,7 +64,7 @@
         },
         {
           "id": 2,
-          "name": "LanzaRanas",
+          "name": "LanzaSapos",
           "deity_name": "deity",
           "age": 100,
           "size": 1,
@@ -110,4 +117,4 @@
           }
         }
       ]
-}
+    }
