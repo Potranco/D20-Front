@@ -457,12 +457,12 @@ ul {
 /* line 25, ../sass/common/_common.scss */
 body {
   margin: 0px 0px 0px 0px;
-  background-color: #fff;
+  background-color: #ebeced;
   color: #444;
   -webkit-text-stroke: 1px transparent;
   height: 100%;
-  font-family: s-text;
-  font-size: fontSizeS;
+  font-family: "Open Sans", verdana, helvetica, sans-serif;
+  font-size: 12px;
 }
 
 /* line 35, ../sass/common/_common.scss */
@@ -489,26 +489,100 @@ input[type="text"], input[type="email"], input[type="search"], input[type="passw
 
 /* line 59, ../sass/common/_common.scss */
 h1 {
-  font-family: verdana, helvetica, sans-serif;
+  font-family: "Open Sans", verdana, helvetica, sans-serif;
   font-size: 50px;
 }
 
+@font-face {
+  font-family: 'Open Sans Light';
+  font-style: normal;
+  font-weight: 300;
+  src: local("Open Sans Light"), local("OpenSans-Light"), url(https://fonts.gstatic.com/s/opensans/v13/DXI1ORHCpsQm3Vp6mXoaTRampu5_7CjHW5spxoeN3Vs.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Open Sans"), local("OpenSans"), url(https://fonts.gstatic.com/s/opensans/v13/cJZKeOuBrn4kERxqtaUH3ZBw1xU1rKptJj_0jans920.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+@font-face {
+  font-family: 'Open Sans Bold';
+  font-style: normal;
+  font-weight: 700;
+  src: local("Open Sans Bold"), local("OpenSans-Bold"), url(https://fonts.gstatic.com/s/opensans/v13/k3k702ZOKiLJc3WVjuplzBampu5_7CjHW5spxoeN3Vs.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
 /* line 4, ../sass/index.scss */
 .wrap {
-  font-family: verdana, helvetica, sans-serif;
+  font-family: "Open Sans", verdana, helvetica, sans-serif;
   font-size: 12px;
 }
 @media (max-width: 768px) {
   /* line 4, ../sass/index.scss */
   .wrap {
-    font-family: verdana, helvetica, sans-serif;
+    font-family: "Open Sans", verdana, helvetica, sans-serif;
     font-size: 10px;
   }
 }
 @media (max-width: 980px) {
   /* line 4, ../sass/index.scss */
   .wrap {
-    font-family: verdana, helvetica, sans-serif;
+    font-family: "Open Sans", verdana, helvetica, sans-serif;
     font-size: 10px;
   }
+}
+
+/* line 20, ../sass/index.scss */
+.Home {
+  -ms-display: flex;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-flex-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+/* line 22, ../sass/index.scss */
+.Home h1 {
+  font-family: 'Open Sans Light';
+  text-align: center;
+}
+/* line 23, ../sass/index.scss */
+.Home .Login {
+  width: 300px;
+  margin: auto;
+  padding: 8px;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+/* line 26, ../sass/index.scss */
+.Home .Login form {
+  padding: 20px;
+  text-align: center;
+}
+/* line 30, ../sass/index.scss */
+.Home .Login input {
+  width: 100%;
+  font-size: 14px;
+  margin: 0px auto 10px;
+  padding: 5px;
+}
+/* line 31, ../sass/index.scss */
+.Home .Login button {
+  border-radius: 3px;
+  padding: 8px;
+  background-color: #4d90fe;
+  background-image: -webkit-linear-gradient(top, #4d90fe, #4787ed);
+  background-image: linear-gradient(top, #4d90fe, #4787ed);
+  border: 1px solid #3079ed;
+  color: #fff;
+  font-size: 14px;
+  width: 100%;
+  margin: auto;
 }

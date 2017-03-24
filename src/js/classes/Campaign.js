@@ -76,7 +76,9 @@ Campaign.prototype.insertData=function(objCampaign){
     if (!this.chars.length) this.events.onLoadChars();
 };
 
-Campaign.prototype.onLoadCampaign=function(){};
+Campaign.prototype.onLoadCampaign=function(){
+    console.log('Campaign.prototype.onLoadCampaign');
+};
 
 Campaign.prototype.loadChars=function(){
     

@@ -27,6 +27,7 @@ function addUserHTML() {
 }
 
 function addCampaignHTML() {
+    console.log('addCampaignHTML');
     document.querySelector('.Campaign h2').innerHTML=campaign.name;
     document.querySelector('#MasterName').innerHTML=campaign.masterName;
 }
