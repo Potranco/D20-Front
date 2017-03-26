@@ -18,12 +18,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
             },
             messages: {
                        LoginEmail: {
-                           required:'el email es obligatorio',
+                           required:'Campo incorecto',
                            max_length:'Maximo de 200 caracteres',
                            min_length:'Minimo de 3 caracteres'
                        },
                        LoginPassword:{
-                            required:'La contraseña es obligatoria',
+                            required:'Campo incorrecto',
                             max_length:'Maximo de 12 caracteres',
                             min_length:'Minimo de 5 caracteres'
                        }
@@ -31,12 +31,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
             custom: {
                       LoginEmail: {
                           inputCSS:'',
-                          labelCSS:'',
+                          labelCSS:'_InputError',
                           idError:'LoginEmailError'
                       },
                        LoginPassword: {
                           inputCSS:'',
-                          labelCSS:'',
+                          labelCSS:'_InputError',
                           idError:'LoginPasswordError'
                       }
             }

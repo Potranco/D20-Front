@@ -15,10 +15,14 @@
         <h1 class="Logo">Project D20</h1>
     
         <form id="FormLogin" action="#">
-            <input type="text" name="email" id="LoginEmail" placeholder="Email">
-            <span id="LoginEmailError"></span>
-            <input type="text" name="password" id="LoginPassword" placeholder="Contraseña">
-            <span id="LoginPasswordError"></span>
+            <label for="email">
+                <input type="email" name="email" id="LoginEmail" placeholder="Email">
+                <span id="LoginEmailError" class="_MsgError"></span>
+            </label>
+            <label for="password">
+                <input type="password" name="password" id="LoginPassword" placeholder="Contraseña">
+                <span id="LoginPasswordError" class="_MsgError"></span>
+            </label>
             <button type="submit">Entrar / Nuevo</button>
         </form>
     </div>
