@@ -48,11 +48,12 @@ label {font-size:$fontSizeS;position:relative;display:block;
   &._InputError {
     input {border-color:#d14836}
     ._MsgError {
-      position: absolute;right:-166px;top:0px;width:150px;padding:3px;border-radius:3px;
+      width:150px;padding:3px;border-radius:0px 0px 3px 3px;
       background-color: #d14836;
       background-image: -webkit-linear-gradient(top,#dd4b39,#d14836);
       background-image: linear-gradient(top,#dd4b39,#d14836);
       color: #fff;
+      margin:-10px 0px 10px 5px;
     }
   }
   
