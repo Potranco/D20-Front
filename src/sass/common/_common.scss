@@ -46,16 +46,23 @@ a {
 }
 label {font-size:$fontSizeS;position:relative;display:block;
   &._InputError {
-    input {border-color:#d14836}
     ._MsgError {
+      height:20px;
+      margin-top:-10px;
+    }
+  }
+   ._MsgError {
       width:150px;padding:3px;border-radius:0px 0px 3px 3px;
       background-color: #d14836;
       background-image: -webkit-linear-gradient(top,#dd4b39,#d14836);
       background-image: linear-gradient(top,#dd4b39,#d14836);
       color: #fff;
-      margin:-10px 0px 10px 5px;
+      margin:-20px 0px 10px 5px;
+      -webkit-transition: height 300ms;
+      transition: height 300ms;
+      display:block;
+      height:0px;
     }
-  }
   
 }
 input[type="text"], input[type="email"], input[type="search"], input[type="password"] {

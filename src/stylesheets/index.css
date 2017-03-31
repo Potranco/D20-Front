@@ -487,11 +487,12 @@ label {
   display: block;
 }
 /* line 49, ../sass/common/_common.scss */
-label._InputError input {
-  border-color: #d14836;
-}
-/* line 50, ../sass/common/_common.scss */
 label._InputError ._MsgError {
+  height: 20px;
+  margin-top: -10px;
+}
+/* line 54, ../sass/common/_common.scss */
+label ._MsgError {
   width: 150px;
   padding: 3px;
   border-radius: 0px 0px 3px 3px;
@@ -499,10 +500,14 @@ label._InputError ._MsgError {
   background-image: -webkit-linear-gradient(top, #dd4b39, #d14836);
   background-image: linear-gradient(top, #dd4b39, #d14836);
   color: #fff;
-  margin: -10px 0px 10px 5px;
+  margin: -20px 0px 10px 5px;
+  -webkit-transition: height 300ms;
+  transition: height 300ms;
+  display: block;
+  height: 0px;
 }
 
-/* line 61, ../sass/common/_common.scss */
+/* line 68, ../sass/common/_common.scss */
 input[type="text"], input[type="email"], input[type="search"], input[type="password"] {
   font-size: 12px;
   margin: 0px auto 10px;
@@ -511,12 +516,12 @@ input[type="text"], input[type="email"], input[type="search"], input[type="passw
   outline: none;
   border-radius: 3px;
 }
-/* line 63, ../sass/common/_common.scss */
+/* line 70, ../sass/common/_common.scss */
 input[type="text"]:hover, input[type="email"]:hover, input[type="search"]:hover, input[type="password"]:hover {
   border-color: #999;
 }
 
-/* line 72, ../sass/common/_common.scss */
+/* line 79, ../sass/common/_common.scss */
 h1 {
   font-family: "Open Sans", verdana, helvetica, sans-serif;
   font-size: 50px;

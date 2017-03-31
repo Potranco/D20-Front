@@ -39,10 +39,7 @@ function validateFormHTML5(idForm,jsonValidate,callback=function(){}){
 	this.applyRules();
 
 	this.form=document.getElementById(this.idform);
-    self=this;
-    this.form.addEventListener('submit',function(event){
-        self.submitCallback(event);
-    },false);
+    this.form.addEventListener('submit',this.submitCallback.bind(this),false);
 }
 
 
@@ -131,21 +128,21 @@ validateFormHTML5.prototype.applyRules=function(){
 };
 
 validateFormHTML5.prototype.validateInput=function(event){
-	input=document.getElementById(event.target.id);
-	inputId=event.target.id;
-	value=input.value;
+	var input=document.getElementById(event.target.id);
 
 	if (input.validity.valid===false) {
 		this.activeError(event);
 	}
 	else {
-		document.getElementById(this.settings[inputId].custom['idError']).style.display='none';
+		this.removeCssCustom(event.target.id);
+		//document.querySelector('label[for='+input.name+']').classlist.remove();
+		//document.getElementById(this.settings[inputId].custom['idError']).style.display='none';
 	}
 };
 
 validateFormHTML5.prototype.activeError=function(event){
-	inputInvalid=document.getElementById(event.target.id);
-	labelInvalid=document.querySelector('#'+this.idform+' label[for=\''+inputInvalid.getAttribute('name')+'\']');
+	var inputInvalid=document.getElementById(event.target.id);
+	var labelInvalid=document.querySelector('#'+this.idform+' label[for=\''+inputInvalid.getAttribute('name')+'\']');
 
 	if (inputInvalid.validity.valid===false) {
 		if (typeof this.messageInputError(event)!=='undefined') {
@@ -168,6 +165,7 @@ validateFormHTML5.prototype.activeError=function(event){
 };
 
 validateFormHTML5.prototype.messageInputError=function(event){
+	var inputInvalid=document.getElementById(event.target.id);
 	if (this.settings[event.target.id].custom.idError!=='') event.preventDefault();
 
 	var message='';
@@ -193,7 +191,8 @@ validateFormHTML5.prototype.messageInputError=function(event){
 };
 
 validateFormHTML5.prototype.addCssCustom=function(idInput){
-	labelInvalid=document.querySelector('#'+this.idform+' label[for=\''+inputInvalid.getAttribute('name')+'\']');
+	var inputInvalid=document.getElementById(event.target.id);
+	var labelInvalid=document.querySelector('#'+this.idform+' label[for=\''+inputInvalid.getAttribute('name')+'\']');
 	if (this.settings[idInput].custom.inputCSS!=='') {
         document.getElementById(idInput).classList.add(this.settings[idInput].custom.inputCSS);
     }
@@ -206,8 +205,10 @@ validateFormHTML5.prototype.addCssCustom=function(idInput){
 }
 
 validateFormHTML5.prototype.removeCssCustom=function(idInput){
-	labelInvalid=document.querySelector('#'+this.idform+' label[for=\''+inputInvalid.getAttribute('name')+'\']');
-	document.getElementById(idInput).classList.remove(this.settings[idInput].custom.inputCSS);
+	var inputInvalid=document.getElementById(event.target.id);
+	var labelInvalid=document.querySelector('#'+this.idform+' label[for=\''+inputInvalid.getAttribute('name')+'\']');
+	if (!!this.settings[idInput].custom.inputCSS) document.getElementById(idInput).classList.remove(this.settings[idInput].custom.inputCSS);
+	if (!!this.settings[idInput].custom.idError) document.getElementById(this.settings[idInput].custom.idError).innerHTML='';
 	labelInvalid.classList.remove(this.settings[idInput].custom.labelCSS);
 }
 
