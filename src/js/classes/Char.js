@@ -21,38 +21,64 @@ function Char(objChar){
     this.size=this.d20_base.size;
 
     this.characteristics={
-        'str':this.d20_base.ability_s_t_r,
-        'strMod':0,
-        'dex':this.d20_base.ability_d_e_x,
-        'dexMod':0,
-        'int':this.d20_base.ability_i_n_t,
-        'intMod':0,
-        'con':this.d20_base.ability_c_o_n,
-        'conMod':0,
-        'wis':this.d20_base.ability_w_i_s,
-        'wisMod':0,
-        'cha':this.d20_base.ability_c_h_a,
-        'chaMod':0
+        str:{
+            base:this.d20_base.ability_s_t_r,
+            mod:0,
+            temporalrarily:0,
+            temporalrarilyMod:0
+        },
+        dex:{
+            base:this.d20_base.ability_d_e_x,
+            mod:0,
+            temporalrarily:0,
+            temporalrarilyMod:0
+        },
+        'int':{
+            base:this.d20_base.ability_i_n_t,
+            mod:0,
+            temporalrarily:0,
+            temporalrarilyMod:0
+        },
+        con:{
+            base:this.d20_base.ability_c_o_n,
+            mod:0,
+            temporalrarily:0,
+            temporalrarilyMod:0
+        },
+        wis:{
+            base:this.d20_base.ability_w_i_s,
+            mod:0,
+            temporalrarily:0,
+            temporalrarilyMod:0
+        },
+        cha:{
+            base:this.d20_base.ability_c_h_a,
+            mod:0,
+            temporalrarily:0,
+            temporalrarilyMod:0
+        }
     };
 
     this.saving={
-        fortitude:this.d20_base.saving_fortitude,
-        reflex:this.d20_base.saving_reflex,
-        will:this.d20_base.saving_will
+        fortitude:this.d20_base.saving_fortitude+this.characteristics.con.mod,
+        reflex:this.d20_base.saving_reflex+this.characteristics.dex.mod,
+        will:this.d20_base.saving_will+this.characteristics.wis.mod
         };
     
     this.attack={
-        'baseAttack':this.d20_base.base_attack,
-        'mele':0,
-        'range':0
+        baseAttack:this.d20_base.base_attack,
+        mele:0,
+        range:0
     };
+    this.attack.mele=this.attack.baseAttack+this.characteristics.str.mod;
+    this.attack.range=this.attack.baseAttack+this.characteristics.dex.mod;
     
     this.HP={
         'initial':this.d20_base.hit_points,
         'total':this.d20_base.hit_points,
         'current':this.d20_base.hit_points
     };
-    this.CA=this.d20_base.armor_class;
+    
     this.initiative=this.d20_base.initiative;
     this.speedBase=this.d20_base.speed;
     this.damageReduction=this.d20_base.damage_reduction;
@@ -61,6 +87,7 @@ function Char(objChar){
     this.weapons=[{
             name:'',
             bonus:0,
+            attack:this.attack.baseAttack,
             damage:[{data:6,extra:0,type:'phisical'}],
             critic:{min:0,max:0},
             distance:0,
@@ -72,6 +99,7 @@ function Char(objChar){
         {
             name:'Muertehelada',
             bonus:3,
+            attack:this.attack.mele,
             damage:[
                     {data:6,extra:8,type:'phisical'},
                     {data:6,extra:0,type:'ice'},
@@ -88,8 +116,10 @@ function Char(objChar){
             properties:[{}]
         }
     ];
+    
     this.armor={
-        objs:[{
+        base:this.d20_base.armor_class,
+        object:[{
             name:'',
             type:'',
             bonus:0,
@@ -107,8 +137,13 @@ function Char(objChar){
             penalty:0,
             spellCrash:'',
             properties:[]
-        }
+        },
+        sizeMod:0,
+        natural:0,
+        others:[]
     };
+    
+    this.CA=this.currentArmor;
     this.spells={
         'learned':[{}],
         'daily':[0,0,0,0,0,0,0,0,0,0],
@@ -131,4 +166,21 @@ function Char(objChar){
 }
 
 
-
+Char.prototype.currentArmor=function(){
+    var armor=10;
+    var aux=0;
+    armor+=this.armor.base;
+    for (var i=0;i<this.armor.object.length;i++){
+        aux+=this.armor.object[i].bonus;
+    }
+    armor+=aux;
+    armor+=this.armor.shield.bonus;
+    armor+=this.characteristics.dex.mod;
+    armor+=this.armor.sizeMod;
+    armor+=this.armor.natural;
+    aux=0;
+    for (i=0;i<this.armor.others.length;i++){
+        aux+=this.armor.others[i].bonus;
+    }
+    return armor+aux;
+};
