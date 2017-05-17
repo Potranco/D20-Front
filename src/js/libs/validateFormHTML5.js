@@ -145,6 +145,9 @@ validateFormHTML5.prototype.activeError=function(event){
 	var labelInvalid=document.querySelector('#'+this.idform+' label[for=\''+inputInvalid.getAttribute('name')+'\']');
 
 	if (inputInvalid.validity.valid===false) {
+		console.log(inputInvalid.validity);
+		
+		
 		if (typeof this.messageInputError(event)!=='undefined') {
 			if (this.settings[event.target.id].custom['idError']==='') {
 				inputInvalid.setCustomValidity(this.messageInputError(event));
