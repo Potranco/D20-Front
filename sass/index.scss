@@ -49,5 +49,18 @@
             outline: none;
         }
     }
+    //.Sidebar {left:-260px;}
 }
 
+.Sidebar {
+    width:200px;heigth:100%;padding:30px;background: #3f4652;
+    position:fixed;top:0px;left:0px;bottom:0px;
+    a {color:#fff}
+    
+    header {
+        margin-bottom:10px;
+        .Nickname {color:#fff}
+        .Email {color:#fff;opacity:0.33}
+    }
+    
+}
