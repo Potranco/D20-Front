@@ -8,7 +8,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
                         LoginEmail: {
                            required:true,
                            max_length:'200',
-                           min_length:'3'
+                           min_length:'3',
+                           custom:'email'
                         },
                         LoginPassword: {
                             required:true,

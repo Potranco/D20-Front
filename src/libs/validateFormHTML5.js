@@ -46,7 +46,7 @@ function validateFormHTML5(idForm,jsonValidate,callback=function(){}){
 validateFormHTML5.prototype.createSettings=function(){
 	var preSettings=this.jsonValidate;
 
-	for (index in preSettings){
+	for (var index in preSettings){
 		if (index==='rules') this.addRulestoSettings(preSettings[index]);
         if (index==='messages') this.addMessagestoSettings(preSettings[index]);
 		if (index==='custom') {
@@ -59,7 +59,7 @@ validateFormHTML5.prototype.createSettings=function(){
 };
 
 validateFormHTML5.prototype.addRulestoSettings=function(preRules){
-	for (index in preRules){
+	for (var index in preRules){
 		this.settings[index] = typeof this.settings[index] !== 'undefined' ? this.settings[index] : {rules:{},messages:{},custom:{}};
 		this.settings[index].rules.required = typeof preRules[index].required !== 'undefined' ? preRules[index].required : '';
 		this.settings[index].rules.email = typeof preRules[index].email !== 'undefined' ? preRules[index].email : '';
@@ -71,7 +71,7 @@ validateFormHTML5.prototype.addRulestoSettings=function(preRules){
 };
 
 validateFormHTML5.prototype.addMessagestoSettings=function(preMessages){
-	for (index in preMessages){
+	for (var index in preMessages){
 		this.settings[index] = typeof this.settings[index] !== 'undefined' ? this.settings[index] : {rules:{},messages:{},custom:{}};
 		this.settings[index].messages.required = typeof preMessages[index].required !== 'undefined' ? preMessages[index].required : '';
 		this.settings[index].messages.min_length = typeof preMessages[index].min_length !== 'undefined' ? preMessages[index].min_length : '';
@@ -81,7 +81,7 @@ validateFormHTML5.prototype.addMessagestoSettings=function(preMessages){
 };
 
 validateFormHTML5.prototype.addCustomtoSettings=function(preCustom){
-	for (index in preCustom){
+	for (var index in preCustom){
 		this.settings[index] = typeof this.settings[index] !== 'undefined' ? this.settings[index] : {rules:{},messages:{},custom:{}};
 		this.settings[index].custom.inputCSS = typeof preCustom[index].inputCSS !== 'undefined' ? preCustom[index].inputCSS : '';
 		this.settings[index].custom.labelCSS = typeof preCustom[index].labelCSS !== 'undefined' ? preCustom[index].labelCSS : '';
@@ -90,7 +90,7 @@ validateFormHTML5.prototype.addCustomtoSettings=function(preCustom){
 };
 
 validateFormHTML5.prototype.addCustomDefaulttoSettings=function(index){
-	for (index in this.settings){
+	for (var index in this.settings){
 		this.settings[index] = typeof this.settings[index] !== 'undefined' ? this.settings[index] : {rules:{},messages:{},custom:{}};
 		this.settings[index].custom.inputCSS = typeof this.settings[index].custom.inputCSS !== 'undefined' ? this.settings[index].custom.inputCSS : '';
 		this.settings[index].custom.labelCSS = typeof this.settings[index].custom.labelCSS !== 'undefined' ? this.settings[index].custom.labelCSS : '';
@@ -100,7 +100,8 @@ validateFormHTML5.prototype.addCustomDefaulttoSettings=function(index){
 
 validateFormHTML5.prototype.applyRules=function(){
 	var settings=this.settings;
-	for (index in settings){
+	var input=null;
+	for (var index in settings){
 		self=this;
 		if (this.validateForm!==true) {
 			document.getElementById(index).onblur=function(e){self.validateInput(e)};
@@ -153,7 +154,7 @@ validateFormHTML5.prototype.activeError=function(event){
 				inputInvalid.setCustomValidity(this.messageInputError(event));
 			}
 			else {
-				divError=document.querySelector('#'+this.settings[event.target.id].custom.idError);
+				var divError=document.querySelector('#'+this.settings[event.target.id].custom.idError);
 				if (divError!==null) {
                     divError.innerHTML=this.messageInputError(event);
 					divError.style.display='block';
@@ -218,7 +219,7 @@ validateFormHTML5.prototype.removeCssCustom=function(idInput){
 validateFormHTML5.prototype.formCleaCSSCustom=function(){
 	var rules=this.settings;
 
-	for (index in rules.custom){
+	for (var index in rules.custom){
 		this.removeCssCustom(index);
 	}
 }

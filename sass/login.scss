@@ -1,0 +1,24 @@
+.Login {
+        width:300px;margin:auto;padding:8px;border-radius:15px;
+        background-color:rgba(255,255,255,0.9);
+        box-shadow:0px 0px 15px #888;
+        border:1px solid #999;
+        form {
+            padding:20px;
+            text-align: center;
+        }
+        input {width:250px;}
+        button {
+            border-radius:3px;
+            padding:8px;
+            background-color: #4d90fe;
+            background-image: -webkit-linear-gradient(top,#4d90fe,#4787ed);
+            background-image: linear-gradient(top,#4d90fe,#4787ed);
+            border: 1px solid #3079ed;
+            color: #fff;
+            font-size:$fontSizeM;
+            width: 250px;
+            margin:auto;
+            outline: none;
+        }
+    }

@@ -1,6 +1,13 @@
 // Class User
 
-function User(){
+import PubSub from './libs/PubSub.js'
+import LoadFile from './libs/LoadFile.js'
+/*
+import Campaigns from './Campaigns.js'
+import Chars from './Chars.js'
+*/
+function User(callback){
+    this.callback=callback?callback:false;
     this.idUser=null;
     this.name='anonymous';
     this.campaigns=null;
@@ -14,7 +21,8 @@ function User(){
     this.token=this.loadToken();
     this.events=new PubSub();
     this.createEvents();
-    this.events.isLogin();
+    //this.events.isLogin();
+    this.events.onLoad();
 }
 
 User.prototype.createEvents=function(){
@@ -23,17 +31,19 @@ User.prototype.createEvents=function(){
     this.events.add('onNewUser',this.createNewUser.bind(this));
     this.events.add('onLoadCampaigns',this.onLoadCampaigns.bind(this));
     this.events.add('onLoadChars',this.onLoadChars.bind(this));
+    this.events.add('onLoad',this.callback.bind(this));
 };
 
 User.prototype.loadToken=function(){
     if(typeof Stores!==undefined){
-        return localStorage.getItem('token');
+        return (localStorage.getItem('token')?localStorage.getItem('token'):false);
     }
     return false;
 };
 
 User.prototype.callData=function(){
     if (this.token) {
+        console.log('porque')
         var ajax={
             url:this.urls.token,
             method: 'GET',
@@ -42,20 +52,22 @@ User.prototype.callData=function(){
                 idUser:this.idUser
             }
         };
-        loadFile(ajax)
+        return LoadFile(ajax)
             .then(function(resolve){
                 this.insertData(JSON.parse(resolve));
                 this.events.onLoadUser();
+                return true;
             }.bind(this),
             function(error) {
                 console.error("Failed!", error);
                 return false;
-            });    
+            });
     }
     else {
         this.events.onNewUser();
+        return false;
     }
-    
+
 };
 
 User.prototype.onLoadUser=function(){
@@ -77,19 +89,19 @@ User.prototype.saveToken=function(token){
 };
 
 User.prototype.loadCampaigns=function(callback){
-    this.campaigns=new Campaigns(this.idUser,this.token,this.urls.campaigns_json,this.events.onLoadCampaigns.bind(this.events));
+   // this.campaigns=new Campaigns(this.idUser,this.token,this.urls.campaigns_json,this.events.onLoadCampaigns.bind(this.events));
     return this;
 };
 User.prototype.onLoadCampaigns=function(){};
 
 User.prototype.loadChars=function(){
-    this.chars=new Chars(this.idUser,this.token,this.urls.chars_json,this.events.onLoadChars.bind(this.events));
+    //this.chars=new Chars(this.idUser,this.token,this.urls.chars_json,this.events.onLoadChars.bind(this.events));
     return this;
 };
 User.prototype.onLoadChars=function(result){};
 
 User.prototype.createNewUser=function(){
-    location.href=this.urls['newUser'];
+
 };
 
 User.prototype.getName=function(){
@@ -103,8 +115,12 @@ User.prototype.getCampaigns=function(){
 };
 
 User.prototype.getChars=function(){
-    
+
     return Object.keys(this.chars).map(function(x) {
         return this.chars[x];
     }.bind(this));
 };
+
+User.prototype.onLoad=function(value){};
+
+export default User;
