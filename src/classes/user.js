@@ -1,7 +1,7 @@
 // Class User
 
-import PubSub from './libs/PubSub.js'
-import LoadFile from './libs/LoadFile.js'
+import PubSub from '../libs/PubSub.js'
+import LoadFile from '../libs/LoadFile.js'
 /*
 import Campaigns from './Campaigns.js'
 import Chars from './Chars.js'
