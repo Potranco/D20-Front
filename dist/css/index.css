@@ -585,3 +585,40 @@ h1 {
 .SideBar a {
   color: #fff;
 }
+/* line 24, ../../sass/index.scss */
+.SideBar .ShowUser {
+  width: 100%;
+  line-height: 120%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+/* line 26, ../../sass/index.scss */
+.SideBar .ShowUser .Avatar {
+  background-size: cover;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  float: left;
+  margin-right: 20px;
+}
+/* line 27, ../../sass/index.scss */
+.SideBar .ShowUser a {
+  font-weight: bold;
+  width: 180px;
+  font-size: 16px;
+}
+/* line 30, ../../sass/index.scss */
+.SideBar .ShowUserMenu {
+  display: none;
+}
+/* line 32, ../../sass/index.scss */
+.SideBar .MenuApp {
+  font-size: 16px;
+}
+/* line 35, ../../sass/index.scss */
+.SideBar .MenuApp .Selected:after {
+  width: calc(100% + 40px);
+}

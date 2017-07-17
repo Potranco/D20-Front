@@ -20,4 +20,20 @@
 .SideBar {
   color: #fff; position: fixed;padding: 20px;left: 0;width: 250px;top: 0;height: 100%;background: #3f4652;z-index: 1;box-sizing: border-box;
   a {color:#fff}
+
+  .ShowUser {
+    width:100%;line-height:120%;height:50px;display:flex;justify-content:center;align-items:center;margin-bottom:20px;
+    .Avatar {background-size:cover;border-radius: 50%;width:50px;height:50px;float:left;margin-right:20px}
+    a {font-weight:bold;width:180px;font-size:16px;}
+  }
+
+  .ShowUserMenu {display:none}
+
+  .MenuApp {
+    font-size: 16px;
+
+    .Selected:after{
+      width:calc(100% + 40px);
+    }
+  }
 }
