@@ -22,6 +22,11 @@ module.exports = {
         query: {
           presets: ['es2015']
         }
+      },
+      {
+        test: /(\.scss)$/,
+        exclude: '/node_modules/',
+        loader: 'sass-loader',
       }
     ]
   }
