@@ -18,36 +18,4 @@
 }
 
 .Home {
-    //background: url(../../screens/screens/tR7UJRt.jpg) center center no-repeat;
-    background: rgba(0,0,0,0.5) url(../../screens/screens/84d4948770604fce711277d0ca9d8b81.jpg) center center no-repeat;
-    //background: url(../../screens/screens/Dungeons-and-dragons-online-drows.jpg) center center no-repeat;
-    
-    background-size:cover;
-    @include vertical-center-text;
-    h1 {font-family:'Open Sans Light';text-align:center;}
-    .Login {
-        width:300px;margin:auto;padding:8px;border-radius:15px;
-        background-color:rgba(255,255,255,0.9);
-        box-shadow:0px 0px 15px #888;
-        border:1px solid #999;
-        form {
-            padding:20px;
-            text-align: center;
-        }
-        input {width:250px;}
-        button {
-            border-radius:3px;
-            padding:8px;
-            background-color: #4d90fe;
-            background-image: -webkit-linear-gradient(top,#4d90fe,#4787ed);
-            background-image: linear-gradient(top,#4d90fe,#4787ed);
-            border: 1px solid #3079ed;
-            color: #fff;
-            font-size:$fontSizeM;
-            width: 250px;
-            margin:auto;
-            outline: none;
-        }
-    }
 }
-

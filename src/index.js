@@ -7,7 +7,6 @@ function addEventOnloadPage(){
 }
 
 function onLoadPage(){
-  console.log(this)
     showUser(document.querySelector('.SideBar .ShowUser'), this);
 }
 
