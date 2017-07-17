@@ -622,3 +622,32 @@ h1 {
   margin: auto;
   outline: none;
 }
+
+/* line 55, ../sass/index.scss */
+.Sidebar {
+  width: 200px;
+  heigth: 100%;
+  padding: 30px;
+  background: #3f4652;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+}
+/* line 58, ../sass/index.scss */
+.Sidebar a {
+  color: #fff;
+}
+/* line 60, ../sass/index.scss */
+.Sidebar header {
+  margin-bottom: 10px;
+}
+/* line 62, ../sass/index.scss */
+.Sidebar header .Nickname {
+  color: #fff;
+}
+/* line 63, ../sass/index.scss */
+.Sidebar header .Email {
+  color: #fff;
+  opacity: 0.33;
+}
