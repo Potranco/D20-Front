@@ -8,8 +8,9 @@ import Chars from './Chars.js'
 */
 function User(callback){
     this.callback=callback?callback:false;
-    this.idUser=null;
+    this.idUser=0;
     this.name='anonymous';
+    this.avatar='defaultAvatar.png';
     this.campaigns=null;
     this.chars=null;
     this.urls={
@@ -104,9 +105,11 @@ User.prototype.createNewUser=function(){
 
 };
 
-User.prototype.getName=function(){
-    return this.name;
-};
+User.prototype.getName=function(){ return this.name; };
+User.prototype.getAvatar=function(){ return this.avatar; };
+User.prototype.getId=function(){ return this.idUser; };
+
+
 
 User.prototype.getCampaigns=function(){
     return Object.keys(this.campaigns).map(function(x) {
