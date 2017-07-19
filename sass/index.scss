@@ -6,7 +6,7 @@ body.ActiveMenu {
 }
 
 .wrap{
-    padding: 20px 60px;
+
     // phone
     @include s-text;
 
@@ -39,6 +39,26 @@ body.ActiveMenu {
 
     .Selected:after{
       width:calc(100% + 40px);
+    }
+  }
+}
+
+.Header {
+  background:linear-gradient(120deg,#6a75c7 25%,#6e4593 85%);
+  color: #fff;
+  padding: 20px 60px;
+
+  .CreateRandom {
+    background:rgba(0,0,0,.15);
+    position:absolute;
+    right: 60px;
+    top:20px;
+    padding: 10px;
+    border-radius: 5px;
+    transition: transform .5s ease,background-color .3s ease;
+    &:hover {
+      background-color:rgba(0,0,0,.30);
+      cursor: pointer;
     }
   }
 }

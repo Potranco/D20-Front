@@ -555,7 +555,6 @@ body.ActiveMenu {
 
 /* line 8, ../../sass/index.scss */
 .wrap {
-  padding: 20px 60px;
   font-family: "Open Sans", verdana, helvetica, sans-serif;
   font-size: 12px;
 }
@@ -628,4 +627,26 @@ body.ActiveMenu {
 /* line 40, ../../sass/index.scss */
 .SideBar .MenuApp .Selected:after {
   width: calc(100% + 40px);
+}
+
+/* line 46, ../../sass/index.scss */
+.Header {
+  background: linear-gradient(120deg, #6a75c7 25%, #6e4593 85%);
+  color: #fff;
+  padding: 20px 60px;
+}
+/* line 51, ../../sass/index.scss */
+.Header .CreateRandom {
+  background: rgba(0, 0, 0, 0.15);
+  position: absolute;
+  right: 60px;
+  top: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  transition: transform .5s ease,background-color .3s ease;
+}
+/* line 59, ../../sass/index.scss */
+.Header .CreateRandom:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
