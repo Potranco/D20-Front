@@ -12,10 +12,10 @@ function User(callback){
     this.callback=callback ? callback : false;
     this.idUser=0;
     this.name='anonymous';
-    this.avatar='defaultAvatar.png';
     this.campaigns=null;
     this.chars=null;
     this.urls=configUrl.url;
+    this.avatar=this.urls.defaultAvatar;
     this.token=this.loadToken();
     this.events=new PubSub();
     this.createEvents();

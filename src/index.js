@@ -22,7 +22,5 @@ function showUser(divShowUser, userProfile){
 
   linkName.href='/user/'+userProfile.getId();
   linkName.innerHTML=userProfile.getName();
-  avatar.src=userProfile.getAvatar();
-  avatar.style.backgroundImage='url(http://nodejs.org/images/logo.png)';
-  avatar.alt=userProfile.getName();
+  avatar.style.backgroundImage='url('+userProfile.getAvatar()+')';
 }
