@@ -2,32 +2,28 @@
 
 import PubSub from '../libs/PubSub.js'
 import LoadFile from '../libs/LoadFile.js'
+import configUrl from '../config/mock_json.js' // json mockeados para trabajar
 /*
 import Campaigns from './Campaigns.js'
 import Chars from './Chars.js'
 */
+
 function User(callback){
-    this.callback=callback?callback:false;
+    this.callback=callback ? callback : false;
     this.idUser=0;
     this.name='anonymous';
     this.avatar='defaultAvatar.png';
     this.campaigns=null;
     this.chars=null;
-    this.urls={
-        'token':'/test/mock_json/token.json',
-        'campaigns_json':'/test/mock_json/campaigns.json',
-        'chars_json':'/test/mock_json/chars.json',
-        'newUser':'index.html'
-    };
+    this.urls=configUrl.url;
     this.token=this.loadToken();
     this.events=new PubSub();
     this.createEvents();
-    //this.events.isLogin();
-    this.events.onLoad();
+    this.events.loadUser();
 }
 
 User.prototype.createEvents=function(){
-    this.events.add('isLogin',this.callData.bind(this));
+    this.events.add('loadUser',this.loadUser.bind(this));
     this.events.add('onLoadUser',this.onLoadUser.bind(this));
     this.events.add('onNewUser',this.createNewUser.bind(this));
     this.events.add('onLoadCampaigns',this.onLoadCampaigns.bind(this));
@@ -42,32 +38,29 @@ User.prototype.loadToken=function(){
     return false;
 };
 
-User.prototype.callData=function(){
-    if (this.token) {
-        console.log('porque')
-        var ajax={
-            url:this.urls.token,
-            method: 'GET',
-            params:{
-                token:this.token,
-                idUser:this.idUser
-            }
-        };
-        return LoadFile(ajax)
-            .then(function(resolve){
-                this.insertData(JSON.parse(resolve));
-                this.events.onLoadUser();
-                return true;
-            }.bind(this),
-            function(error) {
-                console.error("Failed!", error);
-                return false;
-            });
-    }
-    else {
-        this.events.onNewUser();
-        return false;
-    }
+User.prototype.loadUser=function(){
+    let url = this.token ? this.urls.token : this.urls.userAnonimus;
+
+    var ajax={
+        url:url,
+        method: 'GET',
+        params:{
+            token:this.token,
+            idUser:this.idUser
+        }
+    };
+
+    return LoadFile(ajax)
+        .then(function(resolve){
+            this.insertData(JSON.parse(resolve));
+            this.saveToken(this.token);
+            this.events.onLoadUser();
+            return this.callback(this);
+        }.bind(this),
+        function(error) {
+            console.error("Failed!", error);
+            return false;
+        });
 
 };
 

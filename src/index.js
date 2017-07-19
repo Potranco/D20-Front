@@ -2,12 +2,14 @@ import User from "./classes/user.js"
 
 var user = new User(addEventOnloadPage);
 
-function addEventOnloadPage(){
-  document.addEventListener('DOMContentLoaded',onLoadPage.bind(this));
+function addEventOnloadPage(user){
+  return (document.readyState == 'complete')
+    ? onLoadPage.bind(user)()
+    : document.addEventListener('DOMContentLoaded',onLoadPage.bind(user));
 }
 
 function onLoadPage(){
-    showUser(document.querySelector('.SideBar .ShowUser'), this);
+  showUser(document.querySelector('.SideBar .ShowUser'), this);
 }
 
 function showUser(divShowUser, userProfile){
